@@ -12,7 +12,7 @@ Esta plataforma permite a estudiantes, padres y profesores acceder y gestionar i
 - **SQLite**: Base de datos ligera y auto-contenida.
 
 ## Estructura del Proyecto
-
+```
 plataforma-evaluacion/
 ├── prisma/
 │ ├── migrations/
@@ -33,7 +33,7 @@ plataforma-evaluacion/
 │ └── index.js
 ├── .env
 └── package.json
-
+```
 ## Configuración del Proyecto
 
 ### Requisitos Previos
