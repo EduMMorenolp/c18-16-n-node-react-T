@@ -26,6 +26,10 @@ plataforma-evaluacion/
 │ │ ├── estudianteRoutes.js
 │ │ ├── padreRoutes.js
 │ │ └── profesorRoutes.js
+│ ├── models/
+│ │ ├── estudianteModel.js
+│ │ ├── padreModel.js
+│ │ └── profesorModel.js
 │ ├── services/
 │ │ ├── estudianteService.js
 │ │ ├── padreService.js
