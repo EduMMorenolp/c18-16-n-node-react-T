@@ -90,18 +90,8 @@ plataforma-evaluacion/
 
 ### API Endpoints
 
-#### Estudiantes
-* GET /estudiantes: Obtiene todos los estudiantes.
-* POST /estudiantes: Crea un nuevo estudiante.
-#### Padres
-* GET /padres: Obtiene todos los padres.
-* POST /padres: Crea un nuevo padre.
-#### Profesores
-* GET /profesores: Obtiene todos los profesores.
-* POST /profesores: Crea un nuevo profesor.
-#### Evaluaciones
-* GET /evaluaciones: Obtiene todas las evaluaciones.
-* POST /evaluaciones: Crea una nueva evaluación.
+#### Usuario
+* POST /api/login: Logeo de usuarios
 
 ### Licencia
 
