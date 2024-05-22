@@ -25,14 +25,12 @@ plataforma-evaluacion/
 │ │ ├── estudianteController.js
 │ │ ├── padreController.js
 │ │ └── profesorController.js
+│ ├── libs/
+│ │ ├── jwt.js
 │ ├── routes/
 │ │ ├── estudianteRoutes.js
 │ │ ├── padreRoutes.js
 │ │ └── profesorRoutes.js
-│ ├── models/
-│ │ ├── estudianteModel.js
-│ │ ├── padreModel.js
-│ │ └── profesorModel.js
 │ ├── services/
 │ │ ├── estudianteService.js
 │ │ ├── padreService.js
