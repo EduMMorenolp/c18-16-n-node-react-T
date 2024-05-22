@@ -1,4 +1,4 @@
-const { login } = require('../services/authService');
+const { login } = require('../services/authLoginService');
 
 const iniciarSesion = async (req, res) => {
     const { email, password } = req.body;

@@ -1,6 +1,6 @@
 const { createAccessToken } = require('../libs/jwt');
 const prisma = require('../config/prisma');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 // Servicio para iniciar sesión
 const login = async (email, password) => {
