@@ -22,19 +22,15 @@ plataforma-evaluacion/
 │ └── schema.prisma
 ├── src/
 │ ├── controllers/
-│ │ ├── estudianteController.js
-│ │ ├── padreController.js
-│ │ └── profesorController.js
+│ │ ├── authLoginController.js
 │ ├── libs/
 │ │ ├── jwt.js
+│ ├── models/
+│ │ ├── prisma.js
 │ ├── routes/
-│ │ ├── estudianteRoutes.js
-│ │ ├── padreRoutes.js
-│ │ └── profesorRoutes.js
+│ │ ├── authLoginRoutes.js
 │ ├── services/
-│ │ ├── estudianteService.js
-│ │ ├── padreService.js
-│ │ └── profesorService.js
+│ │ ├── authLoginService.js
 │ └── index.js
 ├── .env
 └── package.json
@@ -84,6 +80,13 @@ plataforma-evaluacion/
     npm run dev
     ```
 2. El servidor estará corriendo en http://localhost:3000.
+
+#### Opcional
+
+1. Iniciar Prisma Studio
+   ```bash
+   npm run prismastudio
+   ```
 
 ### API Endpoints
 
