@@ -10,6 +10,9 @@ Esta plataforma permite a estudiantes, padres y profesores acceder y gestionar i
 - **Express**: Framework para aplicaciones web en Node.js.
 - **Prisma**: ORM (Mapeo Objeto-Relacional) para Node.js y TypeScript.
 - **SQLite**: Base de datos ligera y auto-contenida.
+- **Morgan**: Middleware para registrar (log) solicitudes HTTP en aplicaciones Node.js, útil para depuración y monitoreo.
+- **jwt**: Mecanismo para la autenticación segura utilizando tokens JSON Web Token.
+- **bcrypt**: Biblioteca para el cifrado de contraseñas en Node.js, que utiliza el algoritmo de hashing bcrypt para proporcionar una manera segura de almacenar contraseñas.
 
 ## Estructura del Proyecto
 ```

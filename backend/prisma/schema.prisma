@@ -14,36 +14,17 @@ generator client {
 }
 
 model Estudiante {
-  id           Int          @id @default(autoincrement())
-  nombre       String
-  email        String       @unique
-  historial    String
-  evaluaciones Evaluacion[]
-  Padre        Padre?       @relation(fields: [padreId], references: [id])
-  padreId      Int?
+  id       Int    @id @default(autoincrement())
+  nombre   String
+  email    String @unique
+  password String
+  role     String
 }
 
-model Padre {
-  id     Int          @id @default(autoincrement())
-  nombre String
-  email  String       @unique
-  hijos  Estudiante[]
-}
-
-model Profesor {
-  id           Int          @id @default(autoincrement())
-  nombre       String
-  email        String       @unique
-  evaluaciones Evaluacion[]
-}
-
-model Evaluacion {
-  id           Int    @id @default(autoincrement())
-  comentario   String
-  nota         Float
-  estudianteId Int
-  profesorId   Int
-
-  estudiante Estudiante @relation(fields: [estudianteId], references: [id])
-  profesor   Profesor   @relation(fields: [profesorId], references: [id])
-}
+// Sqlite no acepta Enum
+// enum Role {
+//   ADMIN
+//   PROFESOR
+//   PADRE
+//   ALUMNO
+// }
