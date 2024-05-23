@@ -1,11 +1,10 @@
 const { createAccessToken } = require('../libs/jwt');
 const prisma = require('../models/prisma');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 // Servicio para iniciar sesión
 const login = async (email, password) => {
-
-    const usuario = await prisma.usuario.findUnique({
+    const usuario = await prisma.user.findUnique({
         where: { email }
     });
 
@@ -13,16 +12,13 @@ const login = async (email, password) => {
         throw new Error("Credenciales inválidas");
     }
 
-    // Verificar si la contraseña es correcta utilizando bcrypt
-    // const passwordMatch = await bcrypt.compare(password, usuario.password);
-    // if (!passwordMatch) {
-    //     throw new Error("Credenciales inválidas");
-    // }
+    const passwordMatch = await bcrypt.compare(password, usuario.password);
+    if (!passwordMatch) {
+        throw new Error("Credenciales inválidas");
+    }
 
-    // Generar token de acceso
     const token = await createAccessToken({ id: usuario.id });
 
-    // Devolver los datos del usuario y el token
     return {
         id: usuario.id,
         nombre: usuario.nombre,
@@ -31,4 +27,35 @@ const login = async (email, password) => {
     };
 };
 
-module.exports = { login };
+const registro = async (email, password, nombre, role) => {
+    const usuarioExistente = await prisma.user.findUnique({
+        where: { email }
+    });
+
+    if (usuarioExistente) {
+        throw new Error("El usuario ya existe");
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const nuevoUsuario = await prisma.user.create({
+        data: {
+            email,
+            password: hashedPassword,
+            nombre,
+            role
+        }
+    });
+
+    const token = await createAccessToken({ id: nuevoUsuario.id });
+
+    return {
+        id: nuevoUsuario.id,
+        nombre: nuevoUsuario.nombre,
+        email: nuevoUsuario.email,
+        role: nuevoUsuario.role,
+        token: token
+    };
+}
+
+module.exports = { login, registro };

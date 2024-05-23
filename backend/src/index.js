@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const authRoutes = require('./routes/authRoutes');
+require('dotenv').config();
 
 const app = express();
 const portLocal = 3000;
@@ -10,7 +11,7 @@ app.use(morgan('dev')); // Middleware de Morgan para registro de solicitudes HTT
 app.use(express.json());
 
 // Rutas de autenticación
-app.use('/api', authRoutes);
+app.use('/api/auth', authRoutes);
 
 app.listen(PORT, () => {
   console.log(`\n==================================================`);

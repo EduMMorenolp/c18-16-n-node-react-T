@@ -22,15 +22,15 @@ plataforma-evaluacion/
 │ └── schema.prisma
 ├── src/
 │ ├── controllers/
-│ │ ├── authLoginController.js
+│ │ ├── authController.js
 │ ├── libs/
 │ │ ├── jwt.js
 │ ├── models/
 │ │ ├── prisma.js
 │ ├── routes/
-│ │ ├── authLoginRoutes.js
+│ │ ├── authRoutes.js
 │ ├── services/
-│ │ ├── authLoginService.js
+│ │ ├── authService.js
 │ └── index.js
 ├── .env
 └── package.json

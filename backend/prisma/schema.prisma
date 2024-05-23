@@ -14,12 +14,13 @@ generator client {
 }
 
 model Usuario {
-  id       Int    @id @default(autoincrement())
-  nombre   String
-  email    String @unique
-  password String
-  role     String
-  // createdAt  DateTime  @default(now()) // Para tener fecha de creacion de Usuario
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  email     String   @unique
+  password  String
+  role      String 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // Sqlite no acepta Enum
