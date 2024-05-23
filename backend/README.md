@@ -13,6 +13,7 @@ Esta plataforma permite a estudiantes, padres y profesores acceder y gestionar i
 - **Morgan**: Middleware para registrar (log) solicitudes HTTP en aplicaciones Node.js, útil para depuración y monitoreo.
 - **jwt**: Mecanismo para la autenticación segura utilizando tokens JSON Web Token.
 - **bcrypt**: Biblioteca para el cifrado de contraseñas en Node.js, que utiliza el algoritmo de hashing bcrypt para proporcionar una manera segura de almacenar contraseñas.
+- **dotenv**: Carga las variables de entorno desde un archivo .env en una aplicación Node.js.
 
 ## Estructura del Proyecto
 ```
