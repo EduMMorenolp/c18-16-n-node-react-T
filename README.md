@@ -11,7 +11,7 @@ La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herram
 * Backend: Node.js, Express, Prisma, SQLite
 * Frontend: React, Vite, React Router DOM, Bootstrap
 * Tester: Testing manual
-* UI/UX: Jira, Figma
+* UI/UX: Figma
 * Comunicacion: Discord, Trello
 
 ### Colaboradores
