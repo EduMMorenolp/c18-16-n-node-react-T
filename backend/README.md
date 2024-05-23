@@ -59,6 +59,7 @@ plataforma-evaluacion/
    Crea un archivo .env en la raíz del proyecto y añade la siguiente configuración:
    ```bash
    DATABASE_URL="file:./dev.db"
+   JWT_SECRET="your_jwt_secret"
    ```
 4. Inicializa Prisma:
    ```bash
@@ -91,7 +92,8 @@ plataforma-evaluacion/
 ### API Endpoints
 
 #### Usuario
-* POST /api/login: Logeo de usuarios
+* POST /api/auth/login: Logeo de usuarios
+* POST /api/auth/registro: Registro de usuarios
 
 ### Licencia
 
