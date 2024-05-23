@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { iniciarSesion } = require('../controllers/authLoginController');
+const { iniciarSesion } = require('../controllers/authController');
 
 // Ruta para iniciar sesión
 router.post('/login', iniciarSesion);
