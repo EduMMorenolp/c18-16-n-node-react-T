@@ -30,7 +30,7 @@ model userDetails {
   gender    String
   address   String
   phone     Int
-  dni       Int
+  dni       Int      @unique
   role      roles    @relation(fields: [roleId], references: [id])
   roleId    Int
   user      users    @relation(fields: [userId], references: [id])
@@ -39,7 +39,7 @@ model userDetails {
 
 model users {
   id         Int           @id @default(autoincrement())
-  dniNumber  Int           @unique
+  email      String        @unique
   password   String
   userDetail userDetails[]
   parents    parents[]
@@ -115,20 +115,20 @@ model courses {
 }
 
 model enrollments {
-  id        Int      @id @default(autoincrement())
-  student   students @relation(fields: [studentId], references: [id])
+  id        Int       @id @default(autoincrement())
+  student   students  @relation(fields: [studentId], references: [id])
   studentId Int
-  courses   courses  @relation(fields: [courseId], references: [id])
+  courses   courses   @relation(fields: [courseId], references: [id])
   courseId  Int
-  records records[]
+  records   records[]
 }
 
 model records {
-  id        Int      @id @default(autoincrement())
-  bimestre Int
-  record1 Decimal
-  record2 Decimal
-  promedio Decimal
-  enrollment enrollments @relation(fields: [enrollmentId], references: [id])
+  id           Int         @id @default(autoincrement())
+  bimestre     Int
+  record1      Decimal
+  record2      Decimal
+  promedio     Decimal
+  enrollment   enrollments @relation(fields: [enrollmentId], references: [id])
   enrollmentId Int
 }
