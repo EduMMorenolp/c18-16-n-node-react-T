@@ -1,60 +1,73 @@
-const { createAccessToken } = require('../libs/jwt');
-const prisma = require('../models/prisma');
-const bcrypt = require('bcrypt');
+const { createAccessToken } = require('../libs/jwt')
+const prisma = require('../models/prisma')
+const bcrypt = require('bcrypt')
 
 // Servicio para iniciar sesión
-const login = async (email, password) => {
-  const usuario = await prisma.users.findUnique({
+const serviceLogin = async (email, password) => {
+  const users = await prisma.users.findUnique({
     where:
       { email }
-  });
+  })
 
-  if (!usuario) {
-    throw new Error("El usuario no existe");
+  if (!users) {
+    return {
+      status: 404,
+      message: 'El usuario no existe'
+    }
   }
 
-  const passwordMatch = await bcrypt.compare(password, usuario.password);
+  const { password: pass, ...user } = users
+
+  const passwordMatch = await bcrypt.compare(password, users.password)
   if (!passwordMatch) {
-    throw new Error("Credenciales inválidas");
+    return {
+      status: 401,
+      message: 'Credenciales incorrectas'
+    }
   }
 
-  const token = await createAccessToken({ id: usuario.id });
+  const token = await createAccessToken({ id: users.id })
 
   return {
-    id: usuario.id,
-    nombre: usuario.nombre,
-    email: usuario.email,
-    token: token
-  };
-};
+    status: 200,
+    data: {
+      ...user,
+      token
+    }
+  }
+}
 
-const registro = async (email, password) => {
-  const usuarioExistente = await prisma.users.findUnique({
+const serviceRegister = async (email, password) => {
+  const userExist = await prisma.users.findUnique({
     where: { email }
-  });
+  })
 
-  if (usuarioExistente) {
-    throw new Error("El usuario ya existe");
+  if (userExist) {
+    return {
+      status: 404,
+      message: 'El usuario ya existe'
+    }
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const nuevoUsuario = await prisma.users.create({
+  const hashedPassword = await bcrypt.hash(password, 10)
+  const newUser = await prisma.users.create({
     data: {
       email,
       password: hashedPassword
     }
-  });
+  })
 
-  console.log(nuevoUsuario)
-
-  const token = await createAccessToken({ id: nuevoUsuario.id });
+  const { password: pass, ...user } = newUser
+  const token = await createAccessToken({ id: user.id })
 
   return {
-    id: nuevoUsuario.id,
-    nombre: nuevoUsuario.nombre,
-    email: nuevoUsuario.email,
-    token: token
-  };
+    status: 201,
+    message: 'usuario creado',
+    data: {
+      ...user,
+      token
+    }
+  }
 }
 
-module.exports = { login, registro };
+module.exports = { serviceLogin, serviceRegister }
