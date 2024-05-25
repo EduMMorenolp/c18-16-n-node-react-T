@@ -7,9 +7,9 @@ const {
     registerTeacherController,
     updateTeacherController,
     deleteTeacherController
-} = require('../controllers/teacherController');
+} = require('../controllers/teacherController.js');
 
-const verifyToken = require('../middleware/authMiddleware');
+const verifyToken = require('../libs/authMiddleware.js');
 
 router.get('/profesores', verifyToken, getTeachersController);
 router.get('/profesor/:id', verifyToken, getTeacherController);

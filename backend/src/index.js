@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const authRoutes = require('./routes/auth.Routes.js');
-const teacherRoutes = require('./routes/teachers.js');
+const teacherRoutes = require('./routes/teacher.Routes.js');
 require('dotenv').config();
 
 const app = express();
