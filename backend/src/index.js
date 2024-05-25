@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./routes/auth.Routes.js');
+const teacherRoutes = require('./routes/teachers.js');
 require('dotenv').config();
 
 const app = express();
@@ -12,6 +13,8 @@ app.use(express.json());
 
 // Rutas de autenticación
 app.use('/api/auth', authRoutes);
+// Rutas de profesor y cursos
+app.use('/api', teacherRoutes);
 
 app.listen(PORT, () => {
   console.log(`\n==================================================`);
