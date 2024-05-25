@@ -1,20 +1,21 @@
-const express = require('express');
-const morgan = require('morgan');
-const authRoutes = require('./routes/authRoutes');
-require('dotenv').config();
+const express = require('express')
+const morgan = require('morgan')
+const auths = require('./routes/auths.routes')
+const roles = require('./routes/roles.routes')
+require('dotenv').config()
 
-const app = express();
-const portLocal = 3000;
-const PORT = process.env.PORT || portLocal;
+const app = express()
+const PORT = process.env.PORT || 3000
 
-app.use(morgan('dev')); // Middleware de Morgan para registro de solicitudes HTTP
-app.use(express.json());
+app.use(morgan('dev')) // Middleware de Morgan para registro de solicitudes HTTP
+app.use(express.json())
 
 // Rutas de autenticación
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', auths)
+app.use('/api', roles)
 
 app.listen(PORT, () => {
-  console.log(`\n==================================================`);
-  console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`);
-  console.log(`==================================================\n`);
-});
+  console.log('\n==================================================')
+  console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`)
+  console.log('==================================================\n')
+})
