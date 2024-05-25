@@ -29,6 +29,7 @@ const login = async (email, password) => {
 };
 
 const registro = async (email, password) => {
+  console.log(email, password)
   const usuarioExistente = await prisma.users.findUnique({
     where: { email }
   });

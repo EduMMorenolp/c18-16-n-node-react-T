@@ -11,10 +11,10 @@ const {
 
 const verifyToken = require('../libs/authMiddleware.js');
 
-router.get('/profesores', verifyToken, getTeachersController);
-router.get('/profesor/:id', verifyToken, getTeacherController);
-router.post('/profesor', verifyToken, registerTeacherController);
-router.put('/profesor/:id', verifyToken, updateTeacherController);
-router.delete('/profesor/:id', verifyToken, deleteTeacherController);
+router.get('/teachers', verifyToken, getTeachersController);
+router.get('/teacher/:id', verifyToken, getTeacherController);
+router.post('/teacher', verifyToken, registerTeacherController);
+router.put('/teacher/:id', verifyToken, updateTeacherController);
+router.delete('/teacher/:id', verifyToken, deleteTeacherController);
 
 module.exports = router;
