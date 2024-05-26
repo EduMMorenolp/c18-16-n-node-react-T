@@ -1,26 +1,12 @@
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form';
+import Error from '../../components/Error';
 export default function Register() {
+  const { register, handleSubmit, formState:{ errors }, reset } = useForm();
 
-  const [input, setInput] = useState({
-    name: '',
-    email: '',
-    password: '',
-    rolId: ''
-  })
-
-  const handlerChange = (event) => {
-    event.preventDefault ();
-    const { name, value } = event.target
-    setInput((prevState) => ({
-      ...prevState,
-      [name]: value
-    }))
+  const registerUser = (data) => {
+    reset()
   }
-  const handleSubmit = async(event) => {
-    event.preventDefault ();
-    console.log(input)
-  }
-
   return (
     <div className="vh-100">
       <div className="container py-4">
@@ -36,18 +22,21 @@ export default function Register() {
                 />
               </div>
               <div className="card-body p-5 shadow-5">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(registerUser)}>
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label">Nombre</label>
                     <input 
                       type="text" 
                       id="name" 
-                      name="name"
-                      value={input.name}
-                      onChange={handlerChange}
                       className="form-control" 
                       placeholder="Nombres y apellidos"
+                      {...register('name',{ 
+                        required: 'El nombre del usuario es obligatorio',
+                      })}
                     />
+                    {errors.name && (
+                      <Error>{errors.name?.message}</Error>
+                    )}
                   </div>
 
                   <div className="mb-3 mt-3">
@@ -55,30 +44,49 @@ export default function Register() {
                     <input 
                       type="email" 
                       id="email"
-                      name="email"
-                      value={input.email}
-                      onChange={handlerChange}
                       className="form-control" 
                       placeholder="name@example.com"
+                      {...register('email',{ 
+                        required: "El correo electronico es Obligatorio",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: 'Email No Válido'
+                        }
+                      })}
                     />
+                    {errors.email && (
+                      <Error>{errors.email?.message}</Error>
+                    )}
                   </div>
                   <div className="mb-3 mt-3">
                     <label htmlFor="password" className="form-label">Contraseña</label>
                     <input 
                       type="password" 
                       id="password"
-                      name="password"
-                      value={input.password}
-                      onChange={handlerChange}
                       className="form-control" 
                       placeholder="***************"
+                      {...register('password',{ 
+                        required: 'La contaseña es obligatorio',
+                      })}
                     />
+                    {errors.password && (
+                      <Error>{errors.password?.message}</Error>
+                    )}
                   </div>
                   <div className="mb-3 mt-3">
                     <label htmlFor="role" className="form-label">Rol</label>
-                    <select id="role" className="form-select">
+                    <select 
+                      id="role" 
+                      className="form-select"
+                      {...register("rolId", {
+                        required: 'El rol es obligatorio',
+                      })}
+                    >
                       
                     </select>
+                    {errors.rolId && (
+                      <Error>{errors.rolId?.message}</Error>
+                    )}
                   </div>
 
                   <div className="mb-3 mt-4">
