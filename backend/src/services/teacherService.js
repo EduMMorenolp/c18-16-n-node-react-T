@@ -39,7 +39,7 @@ const updateTeacher = async (id, { academicDegree, yearOfExperience, hire_date, 
         data: {
             academicDegree,
             yearOfExperience,
-            hire_date: new Date(hire_date),
+            hare_date: new Date(hire_date),
             user: {
                 connect: { id: userId }
             }
