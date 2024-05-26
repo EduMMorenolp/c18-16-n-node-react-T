@@ -28,7 +28,7 @@ plataforma-evaluacion/
 │ │ ├── teacherController.js
 │ ├── libs/
 │ │ ├── authMiddleware.js
-│ │ ├── jwt.js
+│ │ ├── createAccessToken.js
 │ ├── models/
 │ │ ├── prisma.js
 │ ├── routes/
