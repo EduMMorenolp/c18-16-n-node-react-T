@@ -4,8 +4,6 @@ require('dotenv').config();
 const verifyToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
 
-    console.log(authHeader)
-
     const token = authHeader
 
     // Problemas de local en el backend
