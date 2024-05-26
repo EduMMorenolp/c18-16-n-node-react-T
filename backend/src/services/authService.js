@@ -1,4 +1,4 @@
-const { createAccessToken } = require('../libs/jwt')
+const { createAccessToken } = require('../libs/createAccessToken.js')
 const prisma = require('../models/prisma')
 const bcrypt = require('bcrypt')
 
