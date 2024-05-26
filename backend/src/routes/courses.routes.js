@@ -1,13 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const { getCouerses, createCouerse } = require('../controllers/coursesController')
+const {
+  getCouersesController,
+  getCouerseController,
+  createCouerseController,
+  updateCouerseController,
+  deleteCouerseController,
+} = require('../controllers/coursesController')
 
 // Ruta para Cursos
 router
-  .get('/couerses', getCouerses)
-  .get('/couerse:id', getCouerse)
-  .post('/couerse', createCouerse)
-  .put('/couerse:id', updateCouerse)
-  .delete('/couerse:id', deleteCouerse);
+  .get('/couerses', authenticateToken, getCouersesController)
+  .get('/couerse:id', authenticateToken, getCouerseController)
+  .post('/couerse', authenticateToken, createCouerseController)
+  .put('/couerse:id', authenticateToken, updateCouerseController)
+  .delete('/couerse:id', authenticateToken, deleteCouerseController);
 
 module.exports = router
