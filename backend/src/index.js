@@ -2,7 +2,8 @@ const express = require('express')
 const morgan = require('morgan')
 const auths = require('./routes/auths.routes')
 const roles = require('./routes/roles.routes')
-const teacher = require('./routes/teacher.Routes')
+const teacher = require('./routes/teacher.routes')
+const courses = require('./routes/courses.routes')
 require('dotenv').config()
 
 const app = express()
@@ -16,7 +17,7 @@ app.use('/api/auth', auths)
 app.use('/api', roles)
 // Rutas de profesor y cursos
 app.use('/api', teacher);
-app.use('/api/courses', authenticateToken, courseRoutes);
+app.use('/api', courses);
 
 app.listen(PORT, () => {
   console.log('\n==================================================')

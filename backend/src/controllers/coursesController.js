@@ -1,10 +1,4 @@
-const {
-    getCourses,
-    getCourse,
-    createCourse,
-    updateCourse,
-    deleteCourse,
-} = require('../services/coursesService');
+const { createCourse, deleteCourse, getCourse, getCourses, updateCourse } = require('../services/coursesService');
 
 const getCoursesController = async (req, res) => {
     try {
