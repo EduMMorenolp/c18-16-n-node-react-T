@@ -24,14 +24,21 @@ plataforma-evaluacion/
 ├── src/
 │ ├── controllers/
 │ │ ├── authController.js
+│ │ ├── roleController.js
+│ │ ├── teacherController.js
 │ ├── libs/
+│ │ ├── authMiddleware.js
 │ │ ├── jwt.js
 │ ├── models/
 │ │ ├── prisma.js
 │ ├── routes/
-│ │ ├── authRoutes.js
+│ │ ├── auth.routes.js
+│ │ ├── roles.routes.js
+│ │ ├── teacher.routes.js
 │ ├── services/
 │ │ ├── authService.js
+│ │ ├── roleService.js
+│ │ ├── teacherService.js
 │ └── index.js
 ├── .env
 └── package.json
@@ -95,6 +102,15 @@ plataforma-evaluacion/
 #### Usuario
 * POST /api/auth/login: Logeo de usuarios
 * POST /api/auth/registro: Registro de usuarios
+#### Roles
+* GET /api/roles: Registro de roles
+* POST /api/roles : Crear roles
+#### Profesor
+* GET /api/teachers: Registro de profesores
+* GET /api/teacher/:id: Traer profesor por ID 
+* POST /api/teacher: Crear profesor
+* PUT /teacher/:id: Actualizar profesor por ID
+* DELETE /teacher/:id: Eliminar profesor por ID
 
 ### Licencia
 
