@@ -25,7 +25,7 @@ const registerTeacher = async ({ academicDegree, yearOfExperience, hire_date, us
         data: {
             academicDegree,
             yearOfExperience,
-            hire_date: new Date(hire_date),
+            hare_date: new Date(hire_date),
             user: {
                 connect: { id: userId }
             }
