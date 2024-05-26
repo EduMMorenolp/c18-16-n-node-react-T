@@ -30,23 +30,8 @@ export default function Register() {
               </div>
               <div className="card-body p-5 shadow-5">
                 <form onSubmit={handleSubmit(registerUser)}>
+                 
                   <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Nombre</label>
-                    <input 
-                      id="name" 
-                      type="text" 
-                      className="form-control" 
-                      placeholder="Nombres y apellidos"
-                      {...register('name',{ 
-                        required: 'El nombre del usuario es obligatorio',
-                      })}
-                    />
-                    {errors.name && (
-                      <Error>{errors.name?.message}</Error>
-                    )}
-                  </div>
-
-                  <div className="mb-3 mt-3">
                     <label htmlFor="email" className="form-label">Correo electronico</label>
                     <input 
                       id="email"
@@ -85,15 +70,15 @@ export default function Register() {
                     <select 
                       id="role" 
                       className="form-select"
-                      // {...register("rolId", {
-                      //   required: 'El rol es obligatorio',
-                      // })}
+                      {...register("rolId", {
+                        required: 'El rol es obligatorio',
+                      })}
                     >
                       
                     </select>
-                    {/* {errors.rolId && (
+                    {errors.rolId && (
                       <Error>{errors.rolId?.message}</Error>
-                    )} */}
+                    )}
                   </div>
 
                   <div className="mb-3 mt-4">
