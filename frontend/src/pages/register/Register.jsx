@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Error from '../../components/Error';
+import Swal from "sweetalert2";
 export default function Register() {
   const { register, handleSubmit, formState:{ errors }, reset } = useForm();
 
   const registerUser = (data) => {
     reset()
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "El usuario ha sido guardado",
+      showConfirmButton: false,
+      timer: 1600
+    });
   }
   return (
     <div className="vh-100">
@@ -26,8 +33,8 @@ export default function Register() {
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label">Nombre</label>
                     <input 
-                      type="text" 
                       id="name" 
+                      type="text" 
                       className="form-control" 
                       placeholder="Nombres y apellidos"
                       {...register('name',{ 
@@ -42,8 +49,8 @@ export default function Register() {
                   <div className="mb-3 mt-3">
                     <label htmlFor="email" className="form-label">Correo electronico</label>
                     <input 
-                      type="email" 
                       id="email"
+                      type="email" 
                       className="form-control" 
                       placeholder="name@example.com"
                       {...register('email',{ 
@@ -61,8 +68,8 @@ export default function Register() {
                   <div className="mb-3 mt-3">
                     <label htmlFor="password" className="form-label">Contraseña</label>
                     <input 
-                      type="password" 
                       id="password"
+                      type="password" 
                       className="form-control" 
                       placeholder="***************"
                       {...register('password',{ 
@@ -78,15 +85,15 @@ export default function Register() {
                     <select 
                       id="role" 
                       className="form-select"
-                      {...register("rolId", {
-                        required: 'El rol es obligatorio',
-                      })}
+                      // {...register("rolId", {
+                      //   required: 'El rol es obligatorio',
+                      // })}
                     >
                       
                     </select>
-                    {errors.rolId && (
+                    {/* {errors.rolId && (
                       <Error>{errors.rolId?.message}</Error>
-                    )}
+                    )} */}
                   </div>
 
                   <div className="mb-3 mt-4">
