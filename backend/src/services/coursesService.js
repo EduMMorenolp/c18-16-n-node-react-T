@@ -1,49 +1,74 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const getCourses = async () => {
+const createCourseWithTeacher = async (courseData, teacherId) => {
+    return await prisma.courses.create({
+        data: {
+            name: courseData.name,
+            description: courseData.description,
+            teacherCourses: {
+                create: {
+                    teacherId: teacherId,
+                },
+            },
+        },
+        include: {
+            teacherCourses: {
+                include: {
+                    teacher: true,
+                },
+            },
+        },
+    });
+};
+
+const getCoursesWithTeachers = async () => {
     return await prisma.courses.findMany({
         include: {
-            teacherCourses: true,
-            enrollments: true,
+            teacherCourses: {
+                include: {
+                    teacher: true,
+                },
+            },
         },
     });
 };
 
-const getCourse = async (id) => {
-    return await prisma.courses.findUnique({
-        where: { id: parseInt(id) },
+const updateCourseAndTeachers = async (courseId, courseData, teacherIds) => {
+    return await prisma.courses.update({
+        where: { id: parseInt(courseId) },
+        data: {
+            name: courseData.name,
+            description: courseData.description,
+            teacherCourses: {
+                deleteMany: {},
+                create: teacherIds.map(teacherId => ({
+                    teacherId: teacherId,
+                })),
+            },
+        },
+        include: {
+            teacherCourses: {
+                include: {
+                    teacher: true,
+                },
+            },
+        },
+    });
+};
+
+const deleteCourseWithTeachers = async (courseId) => {
+    return await prisma.courses.delete({
+        where: { id: parseInt(courseId) },
         include: {
             teacherCourses: true,
-            enrollments: true,
         },
-    });
-};
-
-const createCourse = async (data) => {
-    return await prisma.courses.create({
-        data,
-    });
-};
-
-const updateCourse = async (id, data) => {
-    console.log(id, data)
-    return await prisma.courses.update({
-        where: { id: parseInt(id) },
-        data,
-    });
-};
-
-const deleteCourse = async (id) => {
-    return await prisma.courses.delete({
-        where: { id: parseInt(id) },
     });
 };
 
 module.exports = {
-    getCourses,
-    getCourse,
-    createCourse,
-    updateCourse,
-    deleteCourse,
+    createCourseWithTeacher,
+    getCoursesWithTeachers,
+    updateCourseAndTeachers,
+    deleteCourseWithTeachers,
 };

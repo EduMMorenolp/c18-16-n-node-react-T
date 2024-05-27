@@ -1,18 +1,15 @@
 const express = require('express');
-const router = express.Router();
 const {
-  getCoursesController,
-  getCourseController,
   createCourseController,
+  getCoursesController,
   updateCourseController,
   deleteCourseController,
 } = require('../controllers/coursesController');
-const verifyToken = require('../libs/authMiddleware.js');
+const router = express.Router();
 
-router.get('/courses', verifyToken, getCoursesController);
-router.get('/courses/:id', verifyToken, getCourseController);
-router.post('/courses', verifyToken, createCourseController);
-router.put('/courses/:id', verifyToken, updateCourseController);
-router.delete('/courses/:id', verifyToken, deleteCourseController);
+router.post('/courses', createCourseController);
+router.get('/courses', getCoursesController);
+router.put('/courses/:id', updateCourseController);
+router.delete('/courses/:id', deleteCourseController);
 
 module.exports = router;
