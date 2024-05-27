@@ -7,9 +7,11 @@ const {
 } = require('../controllers/coursesController');
 const router = express.Router();
 
-router.post('/courses', createCourseController);
-router.get('/courses', getCoursesController);
-router.put('/courses/:id', updateCourseController);
-router.delete('/courses/:id', deleteCourseController);
+const verifyToken = require('../libs/authMiddleware.js');
+
+router.post('/courses', verifyToken, createCourseController);
+router.get('/courses', verifyToken, getCoursesController);
+router.put('/courses/:id', verifyToken, updateCourseController);
+router.delete('/courses/:id', verifyToken, deleteCourseController);
 
 module.exports = router;
