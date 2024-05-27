@@ -26,6 +26,7 @@ plataforma-evaluacion/
 │ │ ├── authController.js
 │ │ ├── roleController.js
 │ │ ├── teacherController.js
+│ │ ├── cuersesController.js
 │ ├── libs/
 │ │ ├── authMiddleware.js
 │ │ ├── createAccessToken.js
@@ -35,10 +36,12 @@ plataforma-evaluacion/
 │ │ ├── auth.routes.js
 │ │ ├── roles.routes.js
 │ │ ├── teacher.routes.js
+│ │ ├── courses.routes.js
 │ ├── services/
 │ │ ├── authService.js
 │ │ ├── roleService.js
 │ │ ├── teacherService.js
+│ │ ├── coursesService.js
 │ └── index.js
 ├── .env
 └── package.json
@@ -111,6 +114,11 @@ plataforma-evaluacion/
 * POST /api/teacher | Crear profesor
 * PUT /api/teacher/:id | Actualizar profesor por ID
 * DELETE /api/teacher/:id | Eliminar profesor por ID
+#### Cursos
+* GET /api/cuerses | Registro de cursos
+* POST /api/cuerses | Crear curso
+* PUT /api/cuerses/:id | Actualizar curso por ID
+* DELETE /api/cuerses/:id | Eliminar curso por ID
 
 ### Licencia
 
