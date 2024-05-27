@@ -109,7 +109,7 @@ model teacherCourse {
 model courses {
   id             Int             @id @default(autoincrement())
   name           String
-  desciption     String?
+  description     String?
   teacherCourses teacherCourse[]
   enrollments    enrollments[]
 }

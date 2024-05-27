@@ -109,8 +109,8 @@ plataforma-evaluacion/
 * GET /api/teachers | Registro de profesores
 * GET /api/teacher/:id | Traer profesor por ID 
 * POST /api/teacher | Crear profesor
-* PUT /teacher/:id | Actualizar profesor por ID
-* DELETE /teacher/:id | Eliminar profesor por ID
+* PUT /api/teacher/:id | Actualizar profesor por ID
+* DELETE /api/teacher/:id | Eliminar profesor por ID
 
 ### Licencia
 
