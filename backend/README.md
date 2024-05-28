@@ -120,6 +120,7 @@ plataforma-evaluacion/
 * PUT /api/cuerses/:id | Actualizar curso por ID
 * DELETE /api/cuerses/:id | Eliminar curso por ID
 
+
 ### Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
