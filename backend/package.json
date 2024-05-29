@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "prisma:generate": "prisma generate",
     "prismastudio": "npx prisma studio",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
