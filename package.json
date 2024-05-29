@@ -11,7 +11,10 @@
     "react"
   ],
   "scripts": {
-    "dev": "npm-run-all --parallel dev:frontend dev:backend ",
+    "install:all": "npm-run-all --parallel install:frontend install:backend",
+    "install:frontend": "npm install --prefix frontend",
+    "install:backend": "npm install --prefix backend",
+    "dev": "npm-run-all --parallel dev:frontend dev:backend",
     "dev:backend": "npm run dev --prefix backend",
     "dev:frontend": "npm run dev --prefix frontend"
   },
