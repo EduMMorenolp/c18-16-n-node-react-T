@@ -2,7 +2,11 @@
 
 ### Industria o Rubro
 
-EdTech
+* EdTech
+
+### Nombre
+
+* EduLinker
 
 ### Descripción
 La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herramienta diseñada para mejorar la comunicación y el seguimiento del progreso académico entre estudiantes, padres y profesores. Los estudiantes pueden acceder a su historial académico y recibir retroalimentación sobre su rendimiento, los padres pueden seguir el progreso académico de sus hijos y recibir alertas sobre eventos importantes, y los profesores pueden evaluar el desempeño de los estudiantes y comunicarse con los padres sobre su progreso.
@@ -10,9 +14,12 @@ La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herram
 ### Tecnologías
 * Backend: Node.js, Express, Prisma, SQLite
 * Frontend: React, Vite, React Router DOM, Bootstrap
-* Tester: Jira
+* Tester: Testing manual
 * UI/UX: Figma
 * Comunicacion: Discord, Trello
+
+### Enlaces del Proyecto
+* Link Sitio Web 
 
 ### Colaboradores
 <table>
