@@ -1,5 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors');
 const auths = require('./routes/auths.routes')
 const roles = require('./routes/roles.routes')
 const teacher = require('./routes/teacher.routes')
@@ -8,6 +9,8 @@ require('dotenv').config()
 
 const app = express()
 const PORT = process.env.PORT || 3000
+
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.use(morgan('dev')) // Middleware de Morgan para registro de solicitudes HTTP
 app.use(express.json())

@@ -2,7 +2,6 @@ const { serviceLogin, serviceRegister } = require('../services/authService')
 
 const controllerLogin = async (req, res) => {
   const { email, password } = req.body
-
   try {
     const responseLogin = await serviceLogin(email, password)
     res.status(responseLogin.status).json({
