@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import { Image } from "react-bootstrap";
 import Error from "../../components/Error";
 import Swal from "sweetalert2";
-import axios from "axios"; // Importa Axios
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -33,6 +35,8 @@ export default function Login() {
           showConfirmButton: false,
           timer: 1600,
         });
+
+        navigate('/dashboard') 
       } else {
         console.error(
           "Error al iniciar sesión: No se recibió el token",
