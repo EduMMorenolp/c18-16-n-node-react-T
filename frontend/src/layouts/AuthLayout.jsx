@@ -1,11 +1,11 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import { Outlet } from "react-router-dom";
 const AuthLayout = () => {
   return (
-    <div>
+    <div className="auth-layout">
       <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default AuthLayout
+export default AuthLayout;
