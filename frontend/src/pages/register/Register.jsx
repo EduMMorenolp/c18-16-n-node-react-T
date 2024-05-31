@@ -1,27 +1,34 @@
 import { useForm } from 'react-hook-form';
 import { Image } from "react-bootstrap";
 import Error from '../../components/Error';
-import Swal from "sweetalert2";
+import { useMutation } from '@tanstack/react-query';
+import { createAccount } from '../../api/AuthAPI';
+import { toast } from "react-toastify";
 export default function Register() {
-  const { register, handleSubmit, watch, formState:{ errors }, reset } = useForm();
-
-  const registerUser = (data) => {
-    reset()
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "El usuario ha sido guardado",
-      showConfirmButton: false,
-      timer: 1600
-    });
-  }
-
+  const { register, handleSubmit, watch, reset, formState:{ errors } } = useForm();
+  
+  const { mutate } = useMutation({
+    mutationFn: createAccount,
+    onError: (error) => {
+      toast.error(error.message)
+    },
+    onSuccess: (data) => {
+      toast.success(data.message)
+      reset()
+    }
+  })
+  
   const password = watch('password');
+  
+  const handleRegister = async (formData) =>  mutate({
+    ...formData,
+  })
+
   return (
     <div className="vh-100">
       <div className="container py-4">
         <div className="row d-flex justify-content-center align-items-center">
-          <div className="col-12 col-md-10 col-lg-9 col-xl-9">
+          <div className="col-12 col-md-10 col-lg-9 col-xl-7">
             <div className="card">
               <div className='text-center mt-5'>
                 <Image
@@ -32,30 +39,14 @@ export default function Register() {
                 />
               </div>
               <div className="card-body p-5 shadow-5">
-                <form onSubmit={handleSubmit(registerUser)}>
-                  <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Nombre</label>
-                    <input 
-                      id="name" 
-                      type="text" 
-                      className="form-control" 
-                      placeholder="Nombre y apellidos"
-                      {...register('name', {
-                        required: "El nombre es obligatorio ",
-                      })}
-
-                    />
-                    {errors.name && (
-                      <Error>{errors.name?.message}</Error>
-                    )}
-                  </div>
+                <form onSubmit={handleSubmit(handleRegister)}>
                   <div className="mb-3 mt-3">
-                    <label htmlFor="email" className="form-label">Apellidos</label>
+                    <label htmlFor="email" className="form-label">Correo electronico</label>
                     <input
                      id="email"
                      type="text"
                      className="form-control"
-                     placeholder=""
+                     placeholder="Email de Registro"
                      {...register('email', {
                         required: "El email es obligatorio ",
                      })}
@@ -82,7 +73,7 @@ export default function Register() {
                   </div>
 
                   <div className="mb-3 mt-3">
-                    <label htmlFor="password_confirmation" className="form-label">Contraseña</label>
+                    <label htmlFor="password_confirmation" className="form-label">Repetir Password</label>
                     <input 
                       id="password_confirmation"
                       type="password" 

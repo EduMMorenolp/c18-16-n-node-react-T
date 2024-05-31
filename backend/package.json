@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.10.2",
+    "@prisma/client": "^5.14.0",
     "bcrypt": "^5.1.1",
     "c18-16-n-node-react": "file:..",
     "cors": "^2.8.5",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "dotenv": "^16.4.5",
     "nodemon": "^3.1.0",
-    "prisma": "^5.10.2",
+    "prisma": "^5.14.0",
     "standard": "^17.1.0"
   },
   "eslintConfig": {
