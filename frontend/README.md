@@ -16,7 +16,12 @@ frontend/
 │ ├── assets/
 │ ├── components/
 │ │ ├── Error.jsx
-│ │ └── Logo.jsx
+│ │ ├── Header.jsx
+│ │ ├── Logo.jsx
+│ │ ├── MainContest.jsx
+│ │ ├── ProtectedRoute-jsx
+│ │ ├── Sidebar.jsx
+│ │ └── Tabs-jsx
 │ ├── layouts/
 │ │ ├── AppLayout.jsx
 │ │ └── AuthLayout.jsx
