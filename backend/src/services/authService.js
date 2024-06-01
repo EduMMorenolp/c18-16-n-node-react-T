@@ -6,7 +6,17 @@ const bcrypt = require('bcrypt')
 const serviceLogin = async (email, password) => {
   const users = await prisma.users.findUnique({
     where:
-      { email }
+    { email },
+    select: {
+      userDetail: {
+        select: {
+          roleId: true
+        }
+      },
+      id: true,
+      email: true,
+      password: true
+    }
   })
 
   if (!users) {
@@ -16,7 +26,8 @@ const serviceLogin = async (email, password) => {
     }
   }
 
-  const { password: pass, ...user } = users
+  const { password: pass, userDetail, ...user } = users
+  const roleId = userDetail[0].roleId
 
   const passwordMatch = await bcrypt.compare(password, users.password)
   if (!passwordMatch) {
@@ -25,8 +36,8 @@ const serviceLogin = async (email, password) => {
       message: 'Credenciales incorrectas'
     }
   }
-
-  const token = await createAccessToken(user)
+  console.log(user, roleId)
+  const token = await createAccessToken({ ...user, roleId })
 
   return {
     status: 200,
@@ -71,7 +82,7 @@ const serviceRegister = async (email, password, roleId) => {
 
   await prisma.userDetails.create({
     data: {
-      roleId: rolExist.id,
+      roleId,
       userId: newUser.id
     }
   })
@@ -97,16 +108,12 @@ const serviceRegister = async (email, password, roleId) => {
   }
 
   const { password: pass, ...user } = newUser
-  const token = await createAccessToken({ id: user.id })
 
   if (newUser) {
     return {
       status: 201,
       message: 'usuario creado',
-      data: {
-        ...user,
-        token
-      }
+      data: { ...user }
     }
   }
 }

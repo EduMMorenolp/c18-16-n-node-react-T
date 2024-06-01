@@ -15,6 +15,7 @@ const verifyToken = (req, res, next) => {
         return res.status(500).send({ message: 'Failed to authenticate token.' })
       }
     }
+    console.log(user)
     req.user = user
     next()
   })
