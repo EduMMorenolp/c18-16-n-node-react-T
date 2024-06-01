@@ -8,11 +8,13 @@ const {
   deleteRolesByIdController
 } = require('../controllers/roleController')
 
+const verifyAccessToken = require('../middlewares/verifyAccessToken')
+
 router
-  .get('/roles', getAllRolesController)
+  .get('/roles', verifyAccessToken, getAllRolesController)
   .get('/roles/:id', getRolesByIdController)
-  .post('/roles', saveRolesController)
-  .put('/roles/:id', updateRolesByIdController)
-  .delete('/roles/:id', deleteRolesByIdController)
+  .post('/roles', verifyAccessToken, saveRolesController)
+  .put('/roles/:id', verifyAccessToken, updateRolesByIdController)
+  .delete('/roles/:id', verifyAccessToken, deleteRolesByIdController)
 
 module.exports = router

@@ -1,5 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 const auths = require('./routes/auths.routes')
 const roles = require('./routes/roles.routes')
 const teacher = require('./routes/teacher.routes')
@@ -7,8 +8,10 @@ const courses = require('./routes/courses.routes')
 require('dotenv').config()
 
 const app = express()
+
 const PORT = process.env.PORT || 3000
 
+app.use(cors())
 app.use(morgan('dev')) // Middleware de Morgan para registro de solicitudes HTTP
 app.use(express.json())
 
@@ -16,8 +19,8 @@ app.use(express.json())
 app.use('/api/auth', auths)
 app.use('/api', roles)
 // Rutas de profesor y cursos
-app.use('/api', teacher);
-app.use('/api', courses);
+app.use('/api', teacher)
+app.use('/api', courses)
 
 app.listen(PORT, () => {
   console.log('\n==================================================')

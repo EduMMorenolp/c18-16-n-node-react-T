@@ -1,10 +1,10 @@
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require('@prisma/client')
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 prisma.$connect().catch((err) => {
-    console.error('Unable to connect to the database:', err);
-    process.exit(1);
-});
+  console.error('Unable to connect to the database:', err)
+  process.exit(1)
+})
 
-module.exports = prisma;
+module.exports = prisma

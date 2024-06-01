@@ -15,10 +15,10 @@ const controllerLogin = async (req, res) => {
 }
 
 const controllerRegister = async (req, res) => {
-  const { email, password } = req.body
+  const { email, password, roleId } = req.body
 
   try {
-    const responseRegister = await serviceRegister(email, password)
+    const responseRegister = await serviceRegister(email, password, roleId)
     res.status(responseRegister.status).json({
       message: responseRegister.message,
       data: responseRegister.data

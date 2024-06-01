@@ -1,5 +1,5 @@
-const { createAccessToken } = require('../libs/createAccessToken.js')
-const prisma = require('../models/prisma')
+const { createAccessToken } = require('../middlewares/createAccessToken.js')
+const prisma = require('../models/prisma.js')
 const bcrypt = require('bcrypt')
 
 // Servicio para iniciar sesión
@@ -26,7 +26,7 @@ const serviceLogin = async (email, password) => {
     }
   }
 
-  const token = await createAccessToken({ id: users.id })
+  const token = await createAccessToken(user)
 
   return {
     status: 200,
@@ -37,9 +37,13 @@ const serviceLogin = async (email, password) => {
   }
 }
 
-const serviceRegister = async (email, password) => {
+const serviceRegister = async (email, password, roleId) => {
   const userExist = await prisma.users.findUnique({
     where: { email }
+  })
+
+  const rolExist = await prisma.roles.findUnique({
+    where: { id: roleId }
   })
 
   if (userExist) {
@@ -49,7 +53,15 @@ const serviceRegister = async (email, password) => {
     }
   }
 
+  if (!rolExist) {
+    return {
+      status: 404,
+      message: 'El rol no existe verifique los datos'
+    }
+  }
+
   const hashedPassword = await bcrypt.hash(password, 10)
+
   const newUser = await prisma.users.create({
     data: {
       email,
@@ -57,15 +69,44 @@ const serviceRegister = async (email, password) => {
     }
   })
 
+  await prisma.userDetails.create({
+    data: {
+      roleId: rolExist.id,
+      userId: newUser.id
+    }
+  })
+
+  if (rolExist.name === 'student') {
+    await prisma.students.create({
+      data: {
+        userId: newUser.id
+      }
+    })
+  } else if (rolExist.name === 'teacher') {
+    await prisma.teachers.create({
+      data: {
+        userId: newUser.id
+      }
+    })
+  } else if (rolExist.name === 'parent') {
+    await prisma.parents.create({
+      data: {
+        userId: newUser.id
+      }
+    })
+  }
+
   const { password: pass, ...user } = newUser
   const token = await createAccessToken({ id: user.id })
 
-  return {
-    status: 201,
-    message: 'usuario creado',
-    data: {
-      ...user,
-      token
+  if (newUser) {
+    return {
+      status: 201,
+      message: 'usuario creado',
+      data: {
+        ...user,
+        token
+      }
     }
   }
 }

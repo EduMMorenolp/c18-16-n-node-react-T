@@ -1,20 +1,20 @@
-const express = require('express');
+const express = require('express')
 
-const router = express.Router();
+const router = express.Router()
 const {
-    getTeachersController,
-    getTeacherController,
-    registerTeacherController,
-    updateTeacherController,
-    deleteTeacherController
-} = require('../controllers/teacherController.js');
+  getTeachersController,
+  getTeacherController,
+  registerTeacherController,
+  updateTeacherController,
+  deleteTeacherController
+} = require('../controllers/teacherController.js')
 
-const verifyToken = require('../libs/authMiddleware.js');
+const verifyToken = require('../middlewares/verifyAccessToken.js')
 
-router.get('/teachers', verifyToken, getTeachersController);
-router.get('/teacher/:id', verifyToken, getTeacherController);
-router.post('/teacher', verifyToken, registerTeacherController);
-router.put('/teacher/:id', verifyToken, updateTeacherController);
-router.delete('/teacher/:id', verifyToken, deleteTeacherController);
+router.get('/teachers', verifyToken, getTeachersController)
+router.get('/teacher/:id', verifyToken, getTeacherController)
+router.post('/teacher', verifyToken, registerTeacherController)
+router.put('/teacher/:id', verifyToken, updateTeacherController)
+router.delete('/teacher/:id', verifyToken, deleteTeacherController)
 
-module.exports = router;
+module.exports = router
