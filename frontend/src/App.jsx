@@ -6,15 +6,38 @@ import Register from "./pages/register/Register";
 import Login from "./pages/register/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from './components/ProtectedRoute';
-
+import HomePage from "./pages/home/HomePage";
+import Notifications from "./pages/notifications/Notifications";
+import NotFound from "./pages/404/NotFound";
+import Users from "./pages/users/Users";
+import UserUpdate from "./pages/users/UserUpdatePage";
+import UserDetail from "./pages/userDetail/UserDetail";
+import Students from "./pages/students/Students";
+import Teachers from "./pages/teachers/Teachers";
+import LoginPage from "./pages/auth/LoginPage";
+import SettingPage from "./pages/setting/SettingPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="/admin/register" element={<Register />} />
+          <Route path="/" element={<HomePage />} index/>
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          {/* Users */}
+          <Route path="/users" element={<Users/>}/>
+          <Route path="/users/:userId/edit" element={<UserUpdate/>}/>
+          <Route path="/user-detail/:userId" element={<UserDetail/>} />
+          {/* Students */}
+          <Route path="/students" element={<Students/>}/>
+          {/* Teachers */}
+          <Route path="/teachers" element={<Teachers/>}/>
+          {/* Notifications */}
+          <Route path="/notifications" element={<Notifications />} />
+          {/* Setting */}
+          <Route path="setting" element={<SettingPage/>}/>
+
         </Route>
         <Route element={<AuthLayout />}>
           <Route
@@ -25,7 +48,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path='/auth/login' element={<LoginPage />} />
         </Route>
+
       </Routes>
     </BrowserRouter>
   );

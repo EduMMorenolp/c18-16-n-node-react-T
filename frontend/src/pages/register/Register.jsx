@@ -25,7 +25,7 @@ export default function Register() {
   })
 
   return (
-    <div className="vh-100">
+    <div className="px-6 pt-6">
       <div className="container py-4">
         <div className="row d-flex justify-content-center align-items-center">
           <div className="col-12 col-md-10 col-lg-9 col-xl-7">
