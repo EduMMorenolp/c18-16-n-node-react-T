@@ -8,7 +8,6 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from "./pages/home/HomePage";
 import Notifications from "./pages/notifications/Notifications";
-import NotFound from "./pages/404/NotFound";
 import Users from "./pages/users/Users";
 import UserUpdate from "./pages/users/UserUpdatePage";
 import UserDetail from "./pages/userDetail/UserDetail";
@@ -22,7 +21,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="/" element={<HomePage />} index/>
+          <Route index path="/" element={<HomePage />}/>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           {/* Users */}
@@ -30,7 +29,7 @@ function App() {
           <Route path="/users/:userId/edit" element={<UserUpdate/>}/>
           <Route path="/user-detail/:userId" element={<UserDetail/>} />
           {/* Students */}
-          <Route path="/students" element={<Students/>}/>
+          <Route path="/students" element={<Students/>}/> 
           {/* Teachers */}
           <Route path="/teachers" element={<Teachers/>}/>
           {/* Notifications */}

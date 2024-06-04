@@ -39,11 +39,11 @@ export default function SidebarItem({items}) {
                 location.pathname === item.href 
                 ? "text-white"  
                 : 'text-gray-400 hover:text-gray-300',
-                '-ml-0.5 mr-2 h-5 w-5'
+                '-ml-3.5 mr-2 h-5 w-5'
             )}
             aria-hidden="true"
             />
-            <span><span>{item.name}</span></span>
+            <span>{item.name}</span>
           </Link>
         )
        })}

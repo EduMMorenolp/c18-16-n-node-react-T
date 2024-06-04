@@ -27,4 +27,8 @@ const controllerRegister = async (req, res) => {
   }
 }
 
-module.exports = { controllerLogin, controllerRegister }
+const controllerUser = async (req, res) => {
+  return res.json(req.user)
+}
+
+module.exports = { controllerLogin, controllerRegister, controllerUser}
