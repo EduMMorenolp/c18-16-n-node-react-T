@@ -2,19 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import './App.css'
 import AppLayout from "./layouts/AppLayout";
 import AuthLayout from "./layouts/AuthLayout";
-import Register from "./pages/register/Register";
-import Login from "./pages/register/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from "./pages/home/HomePage";
 import Notifications from "./pages/notifications/Notifications";
-import Users from "./pages/users/Users";
-import UserUpdate from "./pages/users/UserUpdatePage";
-import UserDetail from "./pages/userDetail/UserDetail";
-import Students from "./pages/students/Students";
-import Teachers from "./pages/teachers/Teachers";
 import LoginPage from "./pages/auth/LoginPage";
 import SettingPage from "./pages/setting/SettingPage";
+import RegisterPage from "./pages/auth/RegisterPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 
 function App() {
   return (
@@ -22,21 +17,8 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index path="/" element={<HomePage />}/>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          {/* Users */}
-          <Route path="/users" element={<Users/>}/>
-          <Route path="/users/:userId/edit" element={<UserUpdate/>}/>
-          <Route path="/user-detail/:userId" element={<UserDetail/>} />
-          {/* Students */}
-          <Route path="/students" element={<Students/>}/> 
-          {/* Teachers */}
-          <Route path="/teachers" element={<Teachers/>}/>
-          {/* Notifications */}
           <Route path="/notifications" element={<Notifications />} />
-          {/* Setting */}
           <Route path="setting" element={<SettingPage/>}/>
-
         </Route>
         <Route element={<AuthLayout />}>
           <Route
@@ -48,6 +30,8 @@ function App() {
             }
           />
           <Route path='/auth/login' element={<LoginPage />} />
+          <Route path='/auth/register' element={<RegisterPage />} />
+          <Route path='/auth/forgot-password' element={<ForgotPasswordPage />} />
         </Route>
 
       </Routes>

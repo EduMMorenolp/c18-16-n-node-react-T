@@ -1,25 +1,9 @@
-import { Cog6ToothIcon, HomeIcon, UserGroupIcon, UserIcon } from '@heroicons/react/20/solid'
-import { Users } from 'lucide-react';
+import { Cog6ToothIcon, HomeIcon } from '@heroicons/react/20/solid'
 export const dashboardConfig =  [
     {
         name: "Home",
         href: "/",
         icon: HomeIcon,
-    },
-    {
-        name: "Usuarios",
-        href: "/users",
-        icon: UserIcon,
-    },
-    {
-        name: "Profesores",
-        href: "/teachers",
-        icon: UserGroupIcon,
-    },
-    {
-        name: "Alumnos",
-        href: "/students",
-        icon: Users,
     },
     {
         name: "Configuracion",

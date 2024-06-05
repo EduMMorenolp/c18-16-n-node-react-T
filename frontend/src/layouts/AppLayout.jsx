@@ -9,11 +9,11 @@ import Loading from '../components/Loading';
 
 const AppLayout = () => {
   const { data, isError, isLoading } = useAuth()
-    if(isLoading) return <Loading/>
-    if(isError) {
-        return <Navigate to='/auth/login' />
-    }
-    if(data) return (
+    // if(isLoading) return <Loading/>
+    // if(isError) {
+    //     return <Navigate to='/auth/login' />
+    // }
+    if(true) return (
       <>
         <div className="grid min-h-screen w-full lg:grid-cols-[17.5rem_1fr]">
           <Sidebar/>

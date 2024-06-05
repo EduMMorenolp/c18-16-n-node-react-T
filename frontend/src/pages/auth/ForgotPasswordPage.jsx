@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CreateTeacher() {
+export default function ForgotPasswordPage() {
   return (
     <div>
       

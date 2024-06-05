@@ -1,27 +1,60 @@
-const { serviceLogin, serviceRegister } = require('../services/authService')
+const prisma = require('../models/prisma')
+const { checkPassword, hashPassword } = require('../utils/auth')
+const generateJWT = require('../utils/jwt')
 
 const controllerLogin = async (req, res) => {
   const { email, password } = req.body
+  
   try {
-    const responseLogin = await serviceLogin(email, password)
-    res.status(responseLogin.status).json({
-      message: responseLogin.message,
-      data: responseLogin.data
+    const user = await prisma.users.findUnique({
+      where:
+        { email }
+    })
+
+    if (!user) {
+      const error = new Error('Usuario no encontrado')
+      return res.status(404).json({ error: error.message })
+    }
+
+    const isPasswordCorrect = await checkPassword(password, user.password)
+    if(!isPasswordCorrect) {
+      const error = new Error('Invalid email or password')
+      return res.status(401).json({ error: error.message })
+    }
+    
+    res.send({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      userToken: generateJWT({id: user.id})
     })
   } catch (error) {
-    res.status(401).json({ message: error.message })
+    res.status(500).json({ error: 'Invalid email or password' })
   }
 }
 
 const controllerRegister = async (req, res) => {
-  const { email, password } = req.body
-
   try {
-    const responseRegister = await serviceRegister(email, password)
-    res.status(responseRegister.status).json({
-      message: responseRegister.message,
-      data: responseRegister.data
+    const { name, email, password } = req.body
+    const userExists = await prisma.users.findUnique({
+      where:
+        { email }
     })
+
+    if (userExists) {
+      const error = new Error('El Usuario ya esta registrado')
+      return res.status(409).json({ error: error.message })
+    }
+
+    const userPassword = await hashPassword(password);
+    await prisma.users.create({
+      data: {
+        name,
+        email,
+        password: userPassword
+      }
+    })
+    res.send('Usuario creado')
   } catch (error) {
     res.status(400).json({ message: error.message })
   }

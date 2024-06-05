@@ -1,8 +1,8 @@
 export default function Error({ children }) {
     return (
-      <p className="text-center my-3 bg-danger text-white p-1 text-uppercase">
-        {children}
-      </p>
+      <div className="text-center my-2 bg-red-100 text-red-600 font-bold p-2 uppercase text-sm">
+          {children}
+      </div>
     )
   }
   
