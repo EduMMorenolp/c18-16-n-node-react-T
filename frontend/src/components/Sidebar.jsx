@@ -1,6 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Sidebar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
+
   return (
     <div className="bg-primary text-white p-3" style={{ width: "250px" }}>
       <div className="mb-4 text-center">
@@ -34,10 +39,14 @@ const Sidebar = () => {
           </a>
         </li>
       </ul>
-      <div className="mt-auto">
-        <a href="#" className="nav-link text-white">
+      <hr></hr>
+      <div className="mt-auto d-flex justify-content-center">
+        <button
+          onClick={handleLogout}
+          className="nav-link text-white border-0 bg-transparent "
+        >
           Cerrar sesión
-        </a>
+        </button>
       </div>
     </div>
   );

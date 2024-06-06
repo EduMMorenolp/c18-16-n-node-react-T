@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 import Tabs from "../../components/Tabs";
 import MainContent from "../../components/MainContest";
 
 const Dashboard = () => {
+  const [userType, setUserType] = useState("");
+
+  const handleUserChange = (selectedUser) => {
+    setUserType(selectedUser);
+  };
+
   return (
     <div className="d-flex">
       {/* Sidebar */}
@@ -13,13 +19,13 @@ const Dashboard = () => {
       {/* Main Content */}
       <div className="flex-grow-1">
         {/* Header */}
-        <Header />
+        <Header onUserChange={handleUserChange} />
 
         {/* Tabs */}
         <Tabs />
 
         {/* Content */}
-        <MainContent />
+        <MainContent userType={userType} />
       </div>
     </div>
   );
