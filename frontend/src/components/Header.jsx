@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Header = ({ onUserChange }) => {
-  const [selectedUser, setSelectedUser] = useState('');
+  const [selectedUser, setSelectedUser] = useState("");
 
   const handleUserChange = (userType) => {
     if (selectedUser === userType) {
-      setSelectedUser('');
-      onUserChange('');
+      setSelectedUser("");
+      onUserChange("");
     } else {
       setSelectedUser(userType);
       onUserChange(userType);
@@ -18,21 +18,45 @@ const Header = ({ onUserChange }) => {
       <h1 className="h4 mb-0">INSTITUCIÓN EDUCATIVA PEPITO PEREZ</h1>
       <div>
         <button
-          className={`btn btn-outline-primary mx-1 ${selectedUser === 'administrador' && 'active'}`}
-          onClick={() => handleUserChange('administrador')}
+          className={`btn btn-outline-primary mx-1 ${
+            selectedUser === "administrador" && "active"
+          }`}
+          onClick={() => handleUserChange("administrador")}
         >
+          <img
+            src="/2784445.png"
+            alt="Administrador"
+            className="img-fluid"
+            style={{ width: "30px" }}
+          />
           Administrador
         </button>
         <button
-          className={`btn btn-outline-primary mx-1 ${selectedUser === 'profesor' && 'active'}`}
-          onClick={() => handleUserChange('profesor')}
+          className={`btn btn-outline-primary mx-1 ${
+            selectedUser === "profesor" && "active"
+          }`}
+          onClick={() => handleUserChange("profesor")}
         >
+          <img
+            src="/2949916.png"
+            alt="Profesor"
+            className="img-fluid"
+            style={{ width: "30px" }}
+          />
           Profesor
         </button>
         <button
-          className={`btn btn-outline-primary mx-1 ${selectedUser === 'acudiente' && 'active'}`}
-          onClick={() => handleUserChange('acudiente')}
+          className={`btn btn-outline-primary mx-1 ${
+            selectedUser === "acudiente" && "active"
+          }`}
+          onClick={() => handleUserChange("acudiente")}
         >
+          <img
+            src="/sinfondo.png"
+            alt="Acudiente"
+            className="img-fluid"
+            style={{ width: "20px" }}
+          />
           Acudiente
         </button>
       </div>

@@ -36,7 +36,7 @@ export default function Login() {
           timer: 1600,
         });
 
-        navigate('/dashboard') 
+        navigate("/dashboard");
       } else {
         console.error(
           "Error al iniciar sesión: No se recibió el token",
@@ -55,11 +55,11 @@ export default function Login() {
           <div className="col-12 col-md-10 col-lg-9 col-xl-9">
             <div className="card">
               <div className="text-center mt-5">
-                <Image
-                  src="../placeholder.jpg"
-                  alt="imagen logotipo"
-                  className="rounded-circle shadow-4"
-                  style={{ maxWidth: "110px", height: "auto" }}
+                <img
+                  src="/logo edulinker.png"
+                  alt="Administrador"
+                  className="img-fluid"
+                  style={{ width: "200px" }}
                 />
               </div>
               <div className="card-body p-5 shadow-5">
@@ -105,6 +105,14 @@ export default function Login() {
                       type="submit"
                       className="btn btn-primary w-100 text-uppercase"
                       value="Iniciar Sesión"
+                      style={{ backgroundColor: "#E44D15" }}
+                    />
+                  </div>
+                  <div className="mb-3 mt-4">
+                    <input
+                      type="submit"
+                      className="btn btn-primary w-100 text-uppercase"
+                      value="Registrarse"
                     />
                   </div>
                 </form>
