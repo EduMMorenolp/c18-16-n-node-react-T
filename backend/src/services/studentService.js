@@ -1,8 +1,8 @@
 const prisma = require('../models/prisma.js')
 const updateUsersDetails = require('../utils/utils.js')
 
-const getAllParentService = async () => {
-  const parents = await prisma.parents.findMany({
+const getAllStudentService = async () => {
+  const parents = await prisma.students.findMany({
     include: {
       user: {
         include: {
@@ -25,11 +25,11 @@ const getAllParentService = async () => {
   }
 }
 
-const updateParentService = async ({ id, roleId, userDetail, parent }) => {
-  return await updateUsersDetails({ id, roleId, userDetail, dataModel: parent, prisma })
+const updateStudentService = async ({ id, roleId, userDetail, student }) => {
+  return await updateUsersDetails({ id, roleId, userDetail, dataModel: student, prisma })
 }
 
 module.exports = {
-  getAllParentService,
-  updateParentService
+  getAllStudentService,
+  updateStudentService
 }

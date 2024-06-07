@@ -12,8 +12,8 @@ const verifyAccessToken = require('../middlewares/verifyAccessToken')
 
 router
   .get('/roles', verifyAccessToken, getAllRolesController)
-  .get('/roles/:id', getRolesByIdController)
-  .post('/roles', verifyAccessToken, saveRolesController)
+  .get('/roles/:id', verifyAccessToken, getRolesByIdController)
+  .post('/roles', saveRolesController)
   .put('/roles/:id', verifyAccessToken, updateRolesByIdController)
   .delete('/roles/:id', verifyAccessToken, deleteRolesByIdController)
 

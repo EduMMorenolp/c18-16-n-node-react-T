@@ -66,7 +66,7 @@ const updateRolesServiceById = async ({ id, name }) => {
     }
   }
 
-  const updateRol = await prisma.role.update({
+  const updateRol = await prisma.roles.update({
     where: { id },
     data: { name }
   })
@@ -78,7 +78,6 @@ const updateRolesServiceById = async ({ id, name }) => {
 }
 
 const deleteRolesServiceById = async ({ id }) => {
-  console.log(id)
   const role = await prisma.roles.findUnique({
     where: { id }
   })

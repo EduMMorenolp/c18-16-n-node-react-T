@@ -36,7 +36,7 @@ const serviceLogin = async (email, password) => {
       message: 'Credenciales incorrectas'
     }
   }
-  console.log(user, roleId)
+
   const token = await createAccessToken({ ...user, roleId })
 
   return {
@@ -90,7 +90,9 @@ const serviceRegister = async (email, password, roleId) => {
   if (rolExist.name === 'student') {
     await prisma.students.create({
       data: {
-        userId: newUser.id
+        userId: newUser.id,
+        sectionId: 1,
+        degreeId: 1
       }
     })
   } else if (rolExist.name === 'teacher') {
