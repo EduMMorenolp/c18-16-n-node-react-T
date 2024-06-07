@@ -47,6 +47,7 @@ export default function SidebarItem({items}) {
           </Link>
         )
        })}
+       
     </div>
   )
 }

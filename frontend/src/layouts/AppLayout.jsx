@@ -3,17 +3,11 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Navigate, Outlet } from 'react-router-dom';
 import Sidebar from '../components/layouts/Sidebar/Sidebar';
 import Header from '../components/layouts/Header/Header';
-import { useAuth } from '../hooks/useAuth';
-import Loading from '../components/Loading';
 
 
 const AppLayout = () => {
-  const { data, isError, isLoading } = useAuth()
-    // if(isLoading) return <Loading/>
-    // if(isError) {
-    //     return <Navigate to='/auth/login' />
-    // }
-    if(true) return (
+ 
+    return (
       <>
         <div className="grid min-h-screen w-full lg:grid-cols-[17.5rem_1fr]">
           <Sidebar/>

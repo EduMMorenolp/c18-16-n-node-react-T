@@ -26,10 +26,13 @@ export default function Sidebar() {
       <div className="sticky top-0 h-[3.56rem] items-center border-b px-4 lg:flex lg:px-6 bg-[#13446B] z-10">
         <Link
           to="/"
-          className="flex w-fit items-center font-semibold tracking-wider transition-colors"
+          className="flex w-fit items-center"
         >
-          <School className="mb-1 mx-12 mr-2 size-8 text-white" aria-hidden="true"/>
-          <span className="text-lg font-semibold text-white">school</span>
+          <p className="text-2xl mb-1 mx-16 font-extrabold dark:text-[#E44D15]">
+            Edu
+            <span className="dark:text-[#f7f2f2] font-extrabold">linker</span>
+          </p>
+          {/* <span className="text-2xl mb-1 mx-14 font-semibold text-white capitalize">Edulinker</span> */}
         </Link>
       </div>
       <div className={`sticky top-[3.56rem] flex flex-col gap-2.5 px-4 pt-2 lg:px-3 lg:pt-2 bg-[#13446B] z-10 ${isScrolled ? 'mt-8 shadow-xl' : ''}`}>

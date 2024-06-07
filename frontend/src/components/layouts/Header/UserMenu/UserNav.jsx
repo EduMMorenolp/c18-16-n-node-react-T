@@ -2,11 +2,13 @@ import React from "react"
 import { Link } from 'react-router-dom'
 import UserImage from "./UserImage";
 import MenuItem from "./MenuItem";
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { useAuth } from "../../../../hooks/useAuth";
+
 
 export default function UserNav() {
   const [isOpen, setIsOpen] = React.useState(false)
   const ref = React.useRef(null);
+  const { logout, userInfo } = useAuth();
   const toggleOpen = React.useCallback(()=>{
     setIsOpen((prev) => !prev);
   }, [])
@@ -33,19 +35,20 @@ export default function UserNav() {
                   onClick={toggleOpen}
                   className="inline-flex items-center gap-2 justify-center text-xl rounded-full cursor-pointer transition"
                 >
-                    <UserImage src={''}/>
+                  <UserImage src={''}/>
                 </div>
                   {isOpen && (
                     <div className="absolute right-0 z-20 w-56 py-2 mt-2 rounded-md shadow-md bg-white overflow-hidden  top-12 text-sm flex flex-col cursor-pointer">
                       <div className="mx-4 my-2 ">
-                        <p className="text-sm  font-semibold leading-none">Peloteras</p>
-                        <p className="text-sm leading-none text-muted-foreground">
-                          peloteras@gmail.com
+                        <p className="text-sm font-semibold leading-none">{userInfo.name}</p>
+                        <p className="text-sm leading-none text-muted-foreground mt-1">
+                          {userInfo.email}
                         </p>
                       </div>
                       <hr className="-mx-1 my-1 h-px bg-muted"/>
                       <MenuItem 
                         onClick={()=>{
+                          logout()
                           toggleOpen();
                         }}>
                           Cerrar sesión

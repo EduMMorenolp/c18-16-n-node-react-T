@@ -22,7 +22,7 @@ const controllerLogin = async (req, res) => {
       return res.status(401).json({ error: error.message })
     }
     
-    res.send({
+    res.json({
       id: user.id,
       name: user.name,
       email: user.email,
@@ -54,7 +54,7 @@ const controllerRegister = async (req, res) => {
         password: userPassword
       }
     })
-    res.send('Usuario creado')
+    res.send('Cuenta creada, iniciar sesión')
   } catch (error) {
     res.status(400).json({ message: error.message })
   }

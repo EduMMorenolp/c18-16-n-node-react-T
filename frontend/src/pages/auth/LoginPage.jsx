@@ -1,40 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AtSymbolIcon, LockClosedIcon } from '@heroicons/react/20/solid';
 import { useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
-import { authenticateUser } from '../../api/AuthAPI';
-import { toast } from 'react-toastify';
 import Error from '../../components/Error';
 import { useAuth } from '../../hooks/useAuth';
+import Spinner from '../../components/Spinner';
 
 export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const { login } = useAuth();
+  const {userInfo, login } = useAuth();
+  const navigate = useNavigate()
 
   
-  // const navigate = useNavigate()
-  // const { mutate } = useMutation({
-  //   mutationFn: authenticateUser,
-  //   onError: (error) => {
-  //     toast.error(error.message)
-  //   },
-  //   onSuccess: () => {
-  //     navigate('/')
-  //   }
-  // })
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/')
+    }
+  }, [navigate, userInfo])
+
   const handleLogin = async (values) => {
     setLoading(true);
     try {
-      login({...values});
-      navigate('/')
+      await login({...values});
+      navigate('/');
     } catch (error) {
+      alert(error.message)
       setLoading(false);
     }
   }
-
 
   return (
   <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -96,7 +91,7 @@ export default function LoginPage() {
             to={"/auth/register"} 
             className="dark:bg-[#13446B] hover:bg-[#175281] text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-medium w-full">
               Registrarse
-            </Link>
+          </Link>
         </div>
       </form>
       <hr className="w-full my-8 border-t border-[#13446B] " />

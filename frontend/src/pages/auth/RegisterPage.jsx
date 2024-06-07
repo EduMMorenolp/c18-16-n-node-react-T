@@ -2,16 +2,28 @@ import { KeyIcon, UserIcon } from '@heroicons/react/20/solid';
 import { AtSymbolIcon, LockClosedIcon } from '@heroicons/react/24/outline';
 import { useMutation } from '@tanstack/react-query';
 import { ArrowLeft } from 'lucide-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Error from '../../components/Error';
 import { createAccount } from '../../api/AuthAPI';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function RegisterPage() {
   const { register, handleSubmit, watch, reset, formState:{ errors } } = useForm();
   
+  const {userInfo } = useAuth();
+  const navigate = useNavigate()
+
+  
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/')
+    }
+  }, [navigate, userInfo])
+
+
   const { mutate } = useMutation({
     mutationFn: createAccount,
     onError: (error) => {

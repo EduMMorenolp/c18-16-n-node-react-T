@@ -1,46 +1,44 @@
-const INIT = 'INIT';
-const LOGIN = 'LOGIN';
-const REGISTER = 'REGISTER';
-const LOGOUT = 'LOGOUT';
+
+const userToken = localStorage.getItem('AUTH_TOKEN')
+  ? localStorage.getItem('AUTH_TOKEN')
+  : null
 
 export const initialState = {
-    user: null,
+    userInfo: null,
     isInitialized: false,
-    isAuthenticated: false
+    isAuthenticated: false,
+    userToken,
 };
 
 export const authReducer = (state, action) => {
     switch (action.type) {
-        case INIT : {
-            const { isAuthenticated, user } = action.payload;
+        case "INIT" : {
+            
+            const { isAuthenticated, userInfo } = action.payload;
+            console.log(userInfo + "action.payload")
             return { 
                 ...state, 
                 isAuthenticated, 
                 isInitialized: true, 
-                user 
+                userInfo 
             };
         }
-        case LOGIN : {
+        case "LOGIN" : {
+            
             return { 
                 ...state, 
                 isAuthenticated: true, 
-                user: action.payload.user 
+                userInfo: action.payload,
+                userToken: action.payload.userToken
             };
         }
-        case REGISTER: {
-            const { user } = action.payload;
-            return { 
-                ...state, 
-                isAuthenticated: true, 
-                user 
-            };
-        }
-
-        case LOGOUT: {
+       
+        case "LOGOUT": {
+            localStorage.removeItem('AUTH_TOKEN')
             return { 
                 ...state, 
                 isAuthenticated: false, 
-                user: null 
+                userInfo: null 
             };
         }
         default: 
