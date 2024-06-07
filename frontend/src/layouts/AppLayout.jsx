@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Navigate, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/layouts/Sidebar/Sidebar';
 import Header from '../components/layouts/Header/Header';
 
