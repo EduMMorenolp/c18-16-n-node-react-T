@@ -20,9 +20,9 @@ function App() {
         <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
           <Route index path="/" element={<HomePage />}/>
           <Route path="/notifications" element={<Notifications />} />
-          <Route path="setting" element={<SettingPage/>}/>
+          <Route path="/setting" element={<SettingPage/>}/>
         </Route>
-        
+
         <Route element={<AuthLayout />}>
           {/* <Route
             path="/dashboard"
