@@ -27,7 +27,7 @@ export default function SidebarItem({items}) {
             key={index}
             to={item.href}
             className={classNames(
-              "group flex w-full items-center rounded-md border border-transparent px-2 py-1 text-sm font-medium",
+              "group flex w-full items-center rounded-md border border-transparent px-2 py-2 text-sm font-medium",
               location.pathname === item.href
               ? "text-white" 
               : 'text-gray-400 hover:text-gray-300',
@@ -39,7 +39,7 @@ export default function SidebarItem({items}) {
                 location.pathname === item.href 
                 ? "text-white"  
                 : 'text-gray-400 hover:text-gray-300',
-                '-ml-3.5 mr-2 h-5 w-5'
+                '-ml-3.5 mr-3 h-5 w-5'
             )}
             aria-hidden="true"
             />
