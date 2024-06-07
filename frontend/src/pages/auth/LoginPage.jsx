@@ -86,11 +86,11 @@ export default function LoginPage() {
         </div>
 
         <div className="flex justify-center gap-4 mt-2">
-          <input type="submit" value="Iniciar sesión" className="dark:bg-[#E44D15] hover:bg-[#f45419] text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm font-medium w-full"/>
+          <input type="submit" value="Iniciar sesión" className="bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm font-black w-full"/>
           <Link 
             to={"/auth/register"} 
-            className="dark:bg-[#13446B] hover:bg-[#175281] text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-medium w-full">
-              Registrarse
+            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-black w-full">
+            Registrarse
           </Link>
         </div>
       </form>

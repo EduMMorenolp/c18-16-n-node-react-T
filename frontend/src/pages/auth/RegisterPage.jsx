@@ -143,7 +143,7 @@ export default function RegisterPage() {
                 )}
             </div>
 
-            <input type="submit" value="REGISTRARSE" className="w-full dark:bg-[#13446B] hover:bg-[#175281] text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-medium"/>
+            <input type="submit" value="REGISTRARSE" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-black"/>
         </form>
         <hr className="w-full my-8 border-t border-[#13446B]"/>
         <nav className="mt-5 flex flex-col space-y-4">

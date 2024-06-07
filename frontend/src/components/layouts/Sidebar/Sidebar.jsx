@@ -22,15 +22,15 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="h-screen w-full top-0 z-30 hidden flex-col gap-4 border-r lg:sticky lg:block dark:bg-[#13446B] overflow-y-auto">
+    <aside className="h-screen w-full top-0 z-30 hidden flex-col gap-4 border-r lg:sticky lg:block bg-[#13446B] overflow-y-auto">
       <div className="sticky top-0 h-[3.56rem] items-center border-b px-4 lg:flex lg:px-6 bg-[#13446B] z-10">
         <Link
           to="/"
           className="flex w-fit items-center"
         >
-          <p className="text-2xl mb-1 mx-14 font-extrabold dark:text-[#E44D15]">
+          <p className="text-2xl mb-1 mx-14 font-extrabold text-[#E44D15]">
             Edu
-            <span className="dark:text-[#f7f2f2] font-extrabold">Linker</span>
+            <span className="text-[#f7f2f2] font-extrabold">Linker</span>
           </p>
         </Link>
       </div>

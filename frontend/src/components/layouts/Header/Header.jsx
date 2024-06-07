@@ -6,7 +6,7 @@ import UserNav from "./UserMenu/UserNav";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60  dark:bg-[#FFA726]">
+    <header className="sticky top-0 z-50 w-full border-b bg-[#FFA726]">
       <div className="flex h-14 items-center px-6">
         <MobileMenu items={dashboardConfig}/>
         <h2 className="hidden text-lg font-bold text-gray-[#13446B] lg:block uppercase">Instituto Educativo Pepito Perez</h2>

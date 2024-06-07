@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from 'react-router-dom'
 import UserImage from "./UserImage";
 import MenuItem from "./MenuItem";
 import { useAuth } from "../../../../hooks/useAuth";
@@ -29,7 +28,7 @@ export default function UserNav() {
       <div className="flex flex-row items-center gap-3">
         <div className="flex flex-1 items-center justify-end">
           <div className='flex items-center space-x-8'>
-            {true ? (
+            {userInfo ? (
               <>
                 <div 
                   onClick={toggleOpen}
@@ -56,18 +55,7 @@ export default function UserNav() {
                     </div>
                   )}
                 </>
-              ) : (
-                <>
-                  <Link href={'/login'} >
-                    <span className='font-poppins font-semibold text-sm text-mulberry'>Inicia sesión</span>
-                  </Link>
-                  <button
-                    className="px-4 py-[0.60rem] bg-btnBg-light hover:bg-btnBg-dark hover:shadow text-white rounded-xl my-0 mx-2 flex justify-center items-center relative box-border"
-                  >
-                    <ButtonM color='text-white'>Unirme a un evento</ButtonM>
-                  </button>
-                </>
-              )}
+              ) : null}
           </div>
         </div>
       </div>

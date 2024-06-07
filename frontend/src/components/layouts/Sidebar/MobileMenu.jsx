@@ -58,10 +58,10 @@ export default function MobileMenu({ items }) {
            leaveFrom="translate-x-0"
            leaveTo="translate-x-[-100%]"
           >
-            <DialogPanel className="fixed top-0 bottom-0 left-0 w-80 flex h-full flex-col bg-white pb-6 dark:bg-[#13446B]">
+            <DialogPanel className="fixed top-0 bottom-0 left-0 w-80 flex h-full flex-col  pb-6 bg-[#13446B]">
               <div className="p-4">
                 <button
-                  className="mb-4 flex h-8 w-8 items-center justify-center rounded-md border border-black text-black transition-colors dark:border-slate-950 dark:text-white"
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-md border border-black text-black transition-colors dark:border-slate-950 dark:text-white"
                   onClick={closeMobileMenu}
                   aria-label="Close mobile menu"
                 >
@@ -69,8 +69,8 @@ export default function MobileMenu({ items }) {
                 </button>
                 <div className="h-12 items-center border-b">
                   <Link to="/" className="flex items-center justify-center" onClick={closeMobileMenu}>
-                    <p className="text-2xl mb-1 font-extrabold dark:text-[#E44D15]">
-                      Edu<span className="dark:text-[#f7f2f2] font-extrabold">Linker</span>
+                    <p className="text-2xl mb-1 font-extrabold text-[#E44D15]">
+                      Edu<span className="text-[#f7f2f2] font-extrabold">Linker</span>
                     </p>
                   </Link>
                 </div>
