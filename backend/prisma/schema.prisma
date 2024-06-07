@@ -1,0 +1,134 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model roles {
+  id         Int           @id @default(autoincrement())
+  name       String        @unique
+  userDetail userDetails[]
+}
+
+model userDetails {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  birthdate DateTime @default(now())
+  city      String
+  district  String
+  country   String
+  gender    String
+  address   String
+  phone     Int
+  dni       Int      @unique
+  role      roles    @relation(fields: [roleId], references: [id])
+  roleId    Int
+  user      users    @relation(fields: [userId], references: [id])
+  userId    Int
+}
+
+model users {
+  id         Int           @id @default(autoincrement())
+  email      String        @unique
+  password   String
+  userDetail userDetails[]
+  parents    parents[]
+  teachers   teachers[]
+  students   students[]
+}
+
+model parents {
+  id               Int             @id @default(autoincrement())
+  workPlaceAddress String
+  workPlaceNumber  String
+  user             users           @relation(fields: [userId], references: [id])
+  userId           Int
+  parentsStudents  parentStudent[]
+}
+
+model parentStudent {
+  id        Int      @id @default(autoincrement())
+  parent    parents  @relation(fields: [parentId], references: [id])
+  parentId  Int
+  student   students @relation(fields: [studentId], references: [id])
+  studentId Int
+}
+
+model students {
+  id              Int             @id @default(autoincrement())
+  user            users           @relation(fields: [userId], references: [id])
+  userId          Int
+  section         sections        @relation(fields: [sectionId], references: [id])
+  sectionId       Int
+  degree          degrees         @relation(fields: [degreeId], references: [id])
+  degreeId        Int
+  parentsStudents parentStudent[]
+  enrollments     enrollments[]
+}
+
+model teachers {
+  id               Int             @id @default(autoincrement())
+  academicDegree   String
+  yearOfExperience Int
+  hare_date        DateTime
+  user             users           @relation(fields: [userId], references: [id])
+  userId           Int
+  teacherCourses   teacherCourse[]
+}
+
+model sections {
+  id       Int        @id @default(autoincrement())
+  name     String
+  students students[]
+}
+
+model degrees {
+  id       Int        @id @default(autoincrement())
+  name     String
+  students students[]
+}
+
+model teacherCourse {
+  id        Int      @id @default(autoincrement())
+  teacher   teachers @relation(fields: [teacherId], references: [id])
+  teacherId Int
+  course    courses  @relation(fields: [courseId], references: [id])
+  courseId  Int
+}
+
+model courses {
+  id             Int             @id @default(autoincrement())
+  name           String
+  description     String?
+  teacherCourses teacherCourse[]
+  enrollments    enrollments[]
+}
+
+model enrollments {
+  id        Int       @id @default(autoincrement())
+  student   students  @relation(fields: [studentId], references: [id])
+  studentId Int
+  courses   courses   @relation(fields: [courseId], references: [id])
+  courseId  Int
+  records   records[]
+}
+
+model records {
+  id           Int         @id @default(autoincrement())
+  bimestre     Int
+  record1      Decimal
+  record2      Decimal
+  promedio     Decimal
+  enrollment   enrollments @relation(fields: [enrollmentId], references: [id])
+  enrollmentId Int
+}

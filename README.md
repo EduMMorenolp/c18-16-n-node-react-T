@@ -130,11 +130,9 @@ git clone https://github.com/No-Country/c18-16-n-node-react.git
 ```bash
 npm install
 ```
-3. Configura las variables de entorno en un archivo .env en la raiz de la carpeta backend
+3. Instala las dependencias de Backend y Frontend
 ```bash
-PORT=3000
-DATABASE_URL="file:./dev.db"
-JWT_SECRET="tu_secreto_jwt"
+npm run install:all
 ```
 4. Ejecuta la aplicación
 ```bash
@@ -144,6 +142,10 @@ npm run dev
 ### Uso
 1. Abre tu navegador y ve a http://localhost:5173 para acceder al frontend.
 2. Usa http://localhost:3000 para acceder al backend.
+
+### Video Tutorial 
+
+Para obtener una guía visual sobre la instalación y el uso del proyecto, puedes ver este [video tutorial link](https://youtu.be/-2rzwxb_R0M).
 
 ### Enlaces del Proyecto
 * Link Sitio Web 
