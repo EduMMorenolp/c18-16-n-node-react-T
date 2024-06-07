@@ -8,7 +8,6 @@ export const AuthContext = createContext({
     ...initialState,
     method: "JWT",
     login: () => {},
-    register: () => {},
     logout: () => {}
 });
 
