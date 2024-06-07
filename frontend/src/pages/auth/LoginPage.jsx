@@ -4,7 +4,6 @@ import { AtSymbolIcon, LockClosedIcon } from '@heroicons/react/20/solid';
 import { useForm } from 'react-hook-form';
 import Error from '../../components/Error';
 import { useAuth } from '../../hooks/useAuth';
-import Spinner from '../../components/Spinner';
 
 export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm()
