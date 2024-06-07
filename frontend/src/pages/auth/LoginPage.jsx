@@ -4,6 +4,7 @@ import { AtSymbolIcon, LockClosedIcon } from '@heroicons/react/20/solid';
 import { useForm } from 'react-hook-form';
 import Error from '../../components/Error';
 import { useAuth } from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -25,7 +26,7 @@ export default function LoginPage() {
       await login({...values});
       navigate('/');
     } catch (error) {
-      alert(error.message)
+      toast.error(error.message)
       setLoading(false);
     }
   }

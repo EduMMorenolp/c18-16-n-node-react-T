@@ -12,7 +12,7 @@ const controllerLogin = async (req, res) => {
     })
 
     if (!user) {
-      const error = new Error('Usuario no encontrado')
+      const error = new Error('Invalid email or password')
       return res.status(404).json({ error: error.message })
     }
 
