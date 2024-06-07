@@ -5,6 +5,7 @@ const auths = require('./routes/auths.routes')
 const roles = require('./routes/roles.routes')
 const teacher = require('./routes/teacher.routes')
 const courses = require('./routes/courses.routes')
+const homeRouter = require('./routes/home.routes')
 require('dotenv').config()
 
 const app = express()
@@ -31,6 +32,8 @@ app.use(morgan('dev')) // Middleware de Morgan para registro de solicitudes HTTP
 
 app.use(express.json())
 
+// Ruta Inicio
+app.use('/', homeRouter);
 // Rutas de autenticación
 app.use('/api/auth', auths)
 app.use('/api', roles)
