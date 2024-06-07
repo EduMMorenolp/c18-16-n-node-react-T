@@ -5,10 +5,10 @@ export default function ForgotPasswordPage() {
   return (
     <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-xl bg-white rounded-2xl shadow-md p-6 sm:p-10">
-        <h1 className="text-2xl font-black text-center">Reestablecer Password</h1>
-        <p className="text-base font-ligh text-black mt-5">
+        <h1 className="text-2xl font-black text-[#13446B] text-center">Reestablecer Password</h1>
+        <p className="text-base font-medium text-[#13446B] mt-5">
             ¿Olvidaste tu password? coloca tu email {'  '}
-            <span className=" text-orange-600 font-bold">  y reestable tu password</span>
+            <span className=" text-[#FFA726] font-bold">  y reestable tu password</span>
         </p>
         <form  className="space-y-8 mt-10">
           <div className="flex flex-col gap-2">
