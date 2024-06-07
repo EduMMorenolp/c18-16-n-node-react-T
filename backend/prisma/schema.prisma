@@ -39,6 +39,7 @@ model userDetails {
 
 model users {
   id         Int           @id @default(autoincrement())
+  name       String
   email      String        @unique
   password   String
   userDetail userDetails[]
@@ -109,7 +110,7 @@ model teacherCourse {
 model courses {
   id             Int             @id @default(autoincrement())
   name           String
-  description     String?
+  description    String?
   teacherCourses teacherCourse[]
   enrollments    enrollments[]
 }

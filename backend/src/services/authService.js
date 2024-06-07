@@ -70,4 +70,5 @@ const serviceRegister = async (email, password) => {
   }
 }
 
+
 module.exports = { serviceLogin, serviceRegister }
