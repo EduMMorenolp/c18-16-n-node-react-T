@@ -1,0 +1,32 @@
+### COLOCAR SU TOKEN EN EL AUTHORIZATION
+### PARA PODER HACER REQUEST A LAS RUTAS PROTEGIDAS
+
+#### GET all Roles
+GET http://localhost:3000/api/parents HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb0BnbWFpbC5jb20iLCJyb2xlSWQiOjEsImlhdCI6MTcxNzc4ODg5MCwiZXhwIjoxNzE3NzkyNDkwfQ.UblRA7HuCmhwaV6nTr011vFzw6wx8rPz0f02zFKrurk
+
+
+#### PATCH roles
+PATCH  http://localhost:3000/api/parents/2 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb0BnbWFpbC5jb20iLCJyb2xlSWQiOjEsImlhdCI6MTcxNzc5MzcyOSwiZXhwIjoxNzE3Nzk3MzI5fQ.YDy6VYQJTA4KCsnDIDNCYs6p_aSZgk654wpvna0PVNE
+
+{
+  "parent": {
+    "workPlaceAddress": "ppjj atahualpa",
+    "workPlaceNumber": "99898989"
+  },
+  "userDetail": {
+    "firstName": "aziel",
+    "lastName": "zavaleta",
+    "birthdate": "1997-12-15",
+    "city": "chimbote",
+    "district": "ancash",
+    "country": "peru",
+    "gender": "Masculino",
+    "address": "ppjj lima",
+    "phone": "9999999",
+    "dni": "73992720"
+  }
+}

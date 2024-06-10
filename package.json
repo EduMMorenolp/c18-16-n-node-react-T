@@ -1,0 +1,29 @@
+{
+  "name": "c18-16-n-node-react",
+  "version": "1.0.0",
+  "description": "launch application",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/No-Country/c18-16-n-node-react.git"
+  },
+  "keywords": [
+    "node",
+    "react"
+  ],
+  "scripts": {
+    "install:all": "npm-run-all --parallel install:frontend install:backend prepare",
+    "install:frontend": "npm install --prefix frontend",
+    "install:backend": "npm install --prefix backend",
+    "prisma:generate": "npm run prisma:generate --prefix backend",
+    "prepare": "npm run prisma:generate",
+    "dev": "npm-run-all --parallel dev:frontend dev:backend ",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "react-toastify": "^10.0.5"
+  }
+}

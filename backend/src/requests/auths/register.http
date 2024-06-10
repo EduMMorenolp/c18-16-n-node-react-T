@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "aziel13354@gmail.com",
+  "password": "123",
+  "roleId": 4
+}
