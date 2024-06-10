@@ -85,8 +85,8 @@ La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herram
     <tr>
       <td>Amparo Pachón</td>
       <td>UI/UX</td>
-      <td><a href="https://www.linkedin.com/in/luz-amparo-pachón-mojica">LinkedIn</a></td>
-      <td>N/A</td>
+      <td><a href="www.linkedin.com/in/luz-amparo-pachón-mojica-50a1ab2a5">LinkedIn</a></td>
+      <td><a href="https://github.com/LuzAmparo22">Amparo Pachón</a></td>
       <td>amparopachonm@gmail.com</td>
     </tr>
   </tbody>
