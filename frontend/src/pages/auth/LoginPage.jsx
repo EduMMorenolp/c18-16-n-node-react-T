@@ -4,6 +4,7 @@ import { AtSymbolIcon, LockClosedIcon } from '@heroicons/react/20/solid';
 import { useForm } from 'react-hook-form';
 import Error from '../../components/Error';
 import { useAuth } from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -25,7 +26,7 @@ export default function LoginPage() {
       await login({...values});
       navigate('/');
     } catch (error) {
-      alert(error.message)
+      toast.error(error.message)
       setLoading(false);
     }
   }
@@ -38,7 +39,7 @@ export default function LoginPage() {
         alt="Logo"
         className="w-60 h-44 mx-auto"
       />
-      <h1 className="text-2xl font-black  dark:text-[#13446B] text-center">Bienvenido</h1>
+      <h1 className="text-2xl font-black text-[#13446B] text-center">Bienvenido</h1>
       <form onSubmit={handleSubmit(handleLogin)} className="w-full flex flex-col gap-4 mt-4">
         <div className="flex flex-col gap-5">
           <div className="flex items-center text-sm">
@@ -85,11 +86,11 @@ export default function LoginPage() {
         </div>
 
         <div className="flex justify-center gap-4 mt-2">
-          <input type="submit" value="Iniciar sesión" className="dark:bg-[#E44D15] hover:bg-[#f45419] text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm font-medium w-full"/>
+          <input type="submit" value="Iniciar sesión" className="bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm font-black w-full"/>
           <Link 
             to={"/auth/register"} 
-            className="dark:bg-[#13446B] hover:bg-[#175281] text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-medium w-full">
-              Registrarse
+            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-black w-full">
+            Registrarse
           </Link>
         </div>
       </form>

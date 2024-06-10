@@ -42,7 +42,7 @@ export default function RegisterPage() {
   })
   return (
     <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-6 sm:p-8">
+      <div className="w-full max-w-lg bg-white rounded-2xl shadow-md p-6 sm:p-8">
         <div className="-ml-2 flex items-center">
             <Link to="/auth/login" className="flex items-center">
                 <ArrowLeft className="h-5 w-5"/>
@@ -54,7 +54,7 @@ export default function RegisterPage() {
             alt="Logo"
             className="w-60 h-44 mx-auto"
         />
-        <h1 className="text-2xl font-black  dark:text-[#13446B] text-center">Bienvenido</h1>
+        <h1 className="text-2xl font-black  text-[#13446B] text-center">Bienvenido</h1>
         
         <form onSubmit={handleSubmit(handleRegister)} className="w-full flex flex-col gap-4 mt-4">
             <div className="flex flex-col gap-5">
@@ -143,7 +143,7 @@ export default function RegisterPage() {
                 )}
             </div>
 
-            <input type="submit" value="REGISTRARSE" className="w-full dark:bg-[#13446B] hover:bg-[#175281] text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-medium"/>
+            <input type="submit" value="REGISTRARSE" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-sm uppercase text-sm text-center font-black"/>
         </form>
         <hr className="w-full my-8 border-t border-[#13446B]"/>
         <nav className="mt-5 flex flex-col space-y-4">
