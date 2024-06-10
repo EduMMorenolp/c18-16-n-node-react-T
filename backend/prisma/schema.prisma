@@ -13,137 +13,135 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Role {
-  id    Int    @id @default(autoincrement())
-  name  String @unique
-  users User[]
+model roles {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  users users[]
 }
 
-model UserDetails {
-  id        Int     @id @default(autoincrement())
+model userDetails {
+  id        Int       @id @default(autoincrement())
   firstName String?
   lastName  String?
+  birthdate DateTime?
   city      String?
   district  String?
   country   String?
   gender    String?
   address   String?
-  phone     String?
-  dni       Int?    @unique
-  user      User    @relation(fields: [userId], references: [id])
+  phone     Int?
+  dni       Int?      @unique
+  user      users     @relation(fields: [userId], references: [id])
   userId    Int
 }
 
-model User {
-  id          Int           @id @default(autoincrement())
-  name        String
-  email       String        @unique
-  password    String
-  role        Role          @relation(fields: [roleId], references: [id])
-  roleId      Int
-  userDetails UserDetails[]
-  parents     Parent[]
-  teachers    Teacher[]
-  students    Student[]
+model users {
+  id         Int           @id @default(autoincrement())
+  name       String
+  email      String        @unique
+  password   String
+  role       roles         @relation(fields: [roleId], references: [id])
+  roleId     Int
+  userDetail userDetails[]
+  parents    parents[]
+  teachers   teachers[]
+  students   students[]
 }
 
-model Parent {
+model parents {
   id               Int             @id @default(autoincrement())
   workPlaceAddress String?
   workPlaceNumber  String?
-  user             User            @relation(fields: [userId], references: [id])
+  user             users           @relation(fields: [userId], references: [id])
   userId           Int
-  parentStudents   ParentStudent[]
+  parentStudents   parentStudent[]
 }
 
-model ParentStudent {
-  id        Int     @id @default(autoincrement())
-  parent    Parent  @relation(fields: [parentId], references: [id])
+model parentStudent {
+  id        Int      @id @default(autoincrement())
+  parent    parents  @relation(fields: [parentId], references: [id])
   parentId  Int
-  student   Student @relation(fields: [studentId], references: [id])
+  student   students @relation(fields: [studentId], references: [id])
   studentId Int
 }
 
-model Student {
-  id             Int              @id @default(autoincrement())
-  user           User             @relation(fields: [userId], references: [id])
-  userId         Int
-  birthdate      DateTime?
-  degree         Degree           @relation(fields: [degreeId], references: [id])
-  degreeId       Int
-  parentStudents ParentStudent[]
-  enrollments    Enrollment[]
-  sections       SectionStudent[]
+model students {
+  id              Int              @id @default(autoincrement())
+  user            users            @relation(fields: [userId], references: [id])
+  userId          Int
+  section         sections         @relation(fields: [sectionId], references: [id])
+  sectionId       Int
+  degree          degrees          @relation(fields: [degreeId], references: [id])
+  degreeId        Int
+  parentsStudents parentStudent[]
+  enrollments     enrollments[]
+  SectionStudent  SectionStudent[]
 }
 
-model Teacher {
+model teachers {
   id               Int             @id @default(autoincrement())
   academicDegree   String
   yearOfExperience Int
   hire_date        DateTime
-  user             User            @relation(fields: [userId], references: [id])
+  user             users           @relation(fields: [userId], references: [id])
   userId           Int
-  teacherCourses   TeacherCourse[]
+  teacherCourses   teacherCourse[]
 }
 
-model Section {
-  id       Int              @id @default(autoincrement())
-  name     String
-  courseId Int
-  course   Course           @relation(fields: [courseId], references: [id])
-  Studen   SectionStudent[]
+model sections {
+  id             Int              @id @default(autoincrement())
+  name           String
+  students       students[]
+  SectionStudent SectionStudent[]
 }
 
 model SectionStudent {
-  id        Int     @id @default(autoincrement())
-  student   Student @relation(fields: [studentId], references: [id])
+  id        Int      @id @default(autoincrement())
+  student   students @relation(fields: [studentId], references: [id])
   studentId Int
-  section   Section @relation(fields: [sectionId], references: [id])
+  section   sections @relation(fields: [sectionId], references: [id])
   sectionId Int
 
   @@unique([studentId, sectionId])
 }
 
-model Degree {
-  id       Int       @id @default(autoincrement())
+model degrees {
+  id       Int        @id @default(autoincrement())
   name     String
-  students Student[]
+  students students[]
 }
 
-model TeacherCourse {
-  id        Int     @id @default(autoincrement())
-  teacher   Teacher @relation(fields: [teacherId], references: [id])
+model teacherCourse {
+  id        Int      @id @default(autoincrement())
+  teacher   teachers @relation(fields: [teacherId], references: [id])
   teacherId Int
-  course    Course  @relation(fields: [courseId], references: [id])
+  course    courses  @relation(fields: [courseId], references: [id])
   courseId  Int
 }
 
-model Course {
+model courses {
   id             Int             @id @default(autoincrement())
   name           String
-  description    String?
-  teacherCourses TeacherCourse[]
-  enrollments    Enrollment[]
-  Section        Section[]
+  desciption     String?
+  teacherCourses teacherCourse[]
+  enrollments    enrollments[]
 }
 
-
-
-model Enrollment {
-  id        Int      @id @default(autoincrement())
-  student   Student  @relation(fields: [studentId], references: [id])
+model enrollments {
+  id        Int       @id @default(autoincrement())
+  student   students  @relation(fields: [studentId], references: [id])
   studentId Int
-  course    Course   @relation(fields: [courseId], references: [id])
+  courses   courses   @relation(fields: [courseId], references: [id])
   courseId  Int
-  records   Record[]
+  records   records[]
 }
 
-model Record {
-  id           Int        @id @default(autoincrement())
+model records {
+  id           Int         @id @default(autoincrement())
   bimestre     Int
   record1      Decimal
   record2      Decimal
   promedio     Decimal
-  enrollment   Enrollment @relation(fields: [enrollmentId], references: [id])
+  enrollment   enrollments @relation(fields: [enrollmentId], references: [id])
   enrollmentId Int
 }

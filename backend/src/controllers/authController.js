@@ -6,9 +6,13 @@ const controllerLogin = async (req, res) => {
   const { email, password } = req.body
   
   try {
-    const user = await prisma.user.findUnique({
-      where:
-        { email }
+    const user = await prisma.users.findUnique({
+      where:{ 
+        email 
+      },
+      include: {
+        role: true
+      }
     })
 
     if (!user) {
@@ -26,6 +30,7 @@ const controllerLogin = async (req, res) => {
       id: user.id,
       name: user.name,
       email: user.email,
+      role: user.role.name,
       userToken: generateJWT({id: user.id})
     })
   } catch (error) {
@@ -36,7 +41,7 @@ const controllerLogin = async (req, res) => {
 const controllerRegister = async (req, res) => {
   try {
     const { name, email, password, roleId } = req.body
-    const userExists = await prisma.user.findUnique({
+    const userExists = await prisma.users.findUnique({
       where:
         { email }
     })
@@ -47,7 +52,7 @@ const controllerRegister = async (req, res) => {
     }
 
     const userPassword = await hashPassword(password);
-    await prisma.user.create({
+    await prisma.users.create({
       data: {
         name,
         email,

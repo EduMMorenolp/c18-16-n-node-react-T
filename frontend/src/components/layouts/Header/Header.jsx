@@ -16,9 +16,9 @@ export default function Header() {
         <h2 className="hidden text-lg font-bold text-gray-[#13446B] lg:block uppercase">Instituto Educativo Pepito Perez</h2>
         <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-6">
-            {userInfo && <ProfileBuilder/>}
-            {userInfo &&<Notification/>}
-            {userInfo && <UserNav/>}
+            {userInfo.role === 'Admin' && <ProfileBuilder />}
+            <Notification/>
+            <UserNav/>
             </nav>
         </div>
       </div>

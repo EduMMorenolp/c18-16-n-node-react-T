@@ -12,14 +12,20 @@ const authenticate = async (req, res, next) => {
     const [, token] = bearer.split(' ')
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
-        const user = await prisma.user.findUnique({
+        const user = await prisma.users.findUnique({
             where: {
                 id: decoded.id
             },
+            include: {
+                role: true // Incluir la relación con el rol
+            }
         })
         if(typeof decoded === 'object' && decoded.id) {
             if(user) {
-                req.user = user
+                req.user = {
+                    ...user,
+                    role: user.role.name
+                };
                 next()
             } else {
                 res.status(500).json({error: 'Token No Válido'})

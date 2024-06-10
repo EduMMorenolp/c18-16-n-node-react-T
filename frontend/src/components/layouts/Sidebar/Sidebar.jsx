@@ -35,10 +35,10 @@ export default function Sidebar() {
         </Link>
       </div>
       <div className={`sticky top-[3.56rem] flex flex-col gap-2.5 px-4 pt-2 lg:px-3 lg:pt-2 bg-[#13446B] z-10 ${isScrolled ? 'mt-8 shadow-xl' : ''}`}>
-        <div className="flex flex-col gap-2.5 w-full text-center mt-6">
+        <div className="flex flex-col gap-2.5 w-full text-center mt-3">
           <div className="relative m-auto w-20 h-20">
             <img
-              src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp"
+              src="/logo.png"
               alt=""
               className="w-full h-full rounded-full object-cover"
             />
