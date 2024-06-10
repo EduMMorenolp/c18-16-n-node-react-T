@@ -22,11 +22,15 @@ plataforma-evaluacion/
 │ ├── migrations/
 │ └── schema.prisma
 ├── src/
+│ ├── config/
+│ │ ├── nodemailer.js
 │ ├── controllers/
 │ │ ├── authController.js
+│ │ ├── coursesController.js
+│ │ ├── parentController.js
 │ │ ├── roleController.js
+│ │ ├── studentController.js
 │ │ ├── teacherController.js
-│ │ ├── cuersesController.js
 │ ├── libs/
 │ │ ├── authMiddleware.js
 │ │ ├── createAccessToken.js
@@ -34,9 +38,12 @@ plataforma-evaluacion/
 │ │ ├── prisma.js
 │ ├── routes/
 │ │ ├── auth.routes.js
-│ │ ├── roles.routes.js
-│ │ ├── teacher.routes.js
 │ │ ├── courses.routes.js
+│ │ ├── home.routes.js
+│ │ ├── parents.routes.js
+│ │ ├── roles.routes.js
+│ │ ├── students.routes.js
+│ │ ├── teacher.routes.js
 │ ├── services/
 │ │ ├── authService.js
 │ │ ├── roleService.js
