@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 // Servicio para iniciar sesión
 const serviceLogin = async (email, password) => {
-  const users = await prisma.users.findUnique({
+  const users = await prisma.user.findUnique({
     where:
       { email }
   })
@@ -38,7 +38,7 @@ const serviceLogin = async (email, password) => {
 }
 
 const serviceRegister = async (email, password) => {
-  const userExist = await prisma.users.findUnique({
+  const userExist = await prisma.user.findUnique({
     where: { email }
   })
 
@@ -50,7 +50,7 @@ const serviceRegister = async (email, password) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10)
-  const newUser = await prisma.users.create({
+  const newUser = await prisma.user.create({
     data: {
       email,
       password: hashedPassword

@@ -16,7 +16,7 @@ const getAllRolesService = async () => {
   }
 }
 const saveRolesService = async ({ name }) => {
-  const roles = await prisma.roles.findUnique({
+  const roles = await prisma.role.findUnique({
     where: { name }
   })
 
@@ -26,7 +26,7 @@ const saveRolesService = async ({ name }) => {
       message: 'El rol ya existe'
     }
   }
-  const newRol = await prisma.roles.create({
+  const newRol = await prisma.role.create({
     data: { name }
   })
   return {

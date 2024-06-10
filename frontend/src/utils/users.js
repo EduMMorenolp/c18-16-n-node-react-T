@@ -1,24 +1,20 @@
 export const users = [
     {
         "id": "1",
-        "name": "Diana Carolina Rojas",
+        "nombre": "Jose Luis",
+        "apellido": "Capote Rojas",
         "email": "prueba@gmail.com",
-        "state": "Activo",
-        "roles":{
-            "id": "1", 
-            "name": "Estudiante"
-        }
+        "phone": "1234567890",
+        
         
     },
     {
         "id": "2",
-        "name": "Dilan Matias Lopez",
+        "nombre": "Dalia",
+        "apellido": "Rojas",
         "email": "prueba@gmail.com",
-        "state": "Activo",
-        "roles": {
-            "id": "1", 
-            "name": "Acudiente"
-        }
+        "phone": "1234567890",
+        
       
     }
 ]

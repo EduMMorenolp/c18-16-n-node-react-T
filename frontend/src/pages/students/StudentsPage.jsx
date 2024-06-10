@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Students() {
+export default function StudentsPage() {
   return (
     <div className="w-full px-6 pt-6">
       <div className="flex w-full items-center justify-between">

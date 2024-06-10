@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { images } from '../../../utils/assets';
+import { images } from '../../utils/assets';
 
 export default function WelcomeBanner() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

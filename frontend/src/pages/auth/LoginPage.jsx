@@ -33,7 +33,7 @@ export default function LoginPage() {
 
   return (
   <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
-    <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-6 sm:p-10">
+    <div className="w-full max-w-xs bg-white rounded-2xl shadow-md p-6 sm:p-5">
       <img 
         src="/edulinker.jpg" 
         alt="Logo"
@@ -50,7 +50,7 @@ export default function LoginPage() {
               placeholder="Email de Registro"
               className="py-2 pl-10 border border-gray-200 w-full
               text-gray-800 appearance-none
-              focus:text-gray-500 focus:outline-none focus:border-blue-200 rounded-lg"
+               focus:outline-none focus:border-blue-200 rounded-lg"
               {...register("email", {
                 required: "El Email es obligatorio",
                 pattern: {
@@ -73,7 +73,7 @@ export default function LoginPage() {
               placeholder="Password de Registro"
               className="py-2 pl-10 border border-gray-200 w-full
               text-gray-800 appearance-none
-              focus:text-gray-500 focus:outline-none focus:border-blue-200 rounded-lg"
+               focus:outline-none focus:border-blue-200 rounded-lg"
               {...register("password", {
                 required: "El password es obligatorio",
               })}
@@ -94,7 +94,7 @@ export default function LoginPage() {
           </Link>
         </div>
       </form>
-      <hr className="w-full my-8 border-t border-[#13446B] " />
+      <hr className="w-full my-6 border-t border-[#13446B] " />
       <nav className="flex flex-col space-y-4">
         <Link
           to={'/auth/forgot-password'}

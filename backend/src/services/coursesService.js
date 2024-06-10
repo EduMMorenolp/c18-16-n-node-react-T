@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const createCourseWithTeacher = async (courseData, teacherId) => {
-    return await prisma.courses.create({
+    return await prisma.course.create({
         data: {
             name: courseData.name,
             description: courseData.description,
@@ -23,7 +23,7 @@ const createCourseWithTeacher = async (courseData, teacherId) => {
 };
 
 const getCoursesWithTeachers = async () => {
-    return await prisma.courses.findMany({
+    return await prisma.course.findMany({
         include: {
             teacherCourses: {
                 include: {
@@ -35,7 +35,7 @@ const getCoursesWithTeachers = async () => {
 };
 
 const updateCourseAndTeachers = async (courseId, courseData, teacherIds) => {
-    return await prisma.courses.update({
+    return await prisma.course.update({
         where: { id: parseInt(courseId) },
         data: {
             name: courseData.name,
@@ -58,7 +58,7 @@ const updateCourseAndTeachers = async (courseId, courseData, teacherIds) => {
 };
 
 const deleteCourseWithTeachers = async (courseId) => {
-    return await prisma.courses.delete({
+    return await prisma.course.delete({
         where: { id: parseInt(courseId) },
         include: {
             teacherCourses: true,

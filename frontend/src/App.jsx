@@ -1,17 +1,32 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import './App.css'
 import AppLayout from "./layouts/AppLayout";
+import ProtectedRoute from "./routing/ProtectedRoute";
 import AuthLayout from "./layouts/AuthLayout";
-// import Dashboard from "./pages/dashboard/Dashboard";
-// import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from "./pages/home/HomePage";
 import Notifications from "./pages/notifications/Notifications";
-import LoginPage from "./pages/auth/LoginPage";
 import SettingPage from "./pages/setting/SettingPage";
+import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import NotFound from "./pages/404/NotFound";
-import ProtectedRoute from "./routing/ProtectedRoute";
+
+
+// Students
+import StudentsPage from "./pages/students/StudentsPage";
+
+//Parents
+import ParentsPage from "./pages/parents/ParentsPage";
+import CreateParentPage from "./pages/parents/CreateParentPage";
+import UpdateParentPage from "./pages/parents/UpdateParentPage";
+import ParentDetailPage from "./pages/parents/ParentDetailPage";
+
+//Teachers
+import TeachesPage from "./pages/teachers/TeachesPage";
+import CreateTeacherPage from "./pages/teachers/CreateTeacherPage";
+import UpdateTeacherPage from "./pages/teachers/UpdateTeacherPage";
+import TeacherDetail from "./pages/teachers/TeacherDetail";
+
+
 
 function App() {
   return (
@@ -21,17 +36,24 @@ function App() {
           <Route index path="/" element={<HomePage />}/>
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/setting" element={<SettingPage/>}/>
+
+          {/* Teachers */}
+          <Route path="/teachers" element={<TeachesPage/>}/>
+          <Route path="/teachers/create-teacher" element={<CreateTeacherPage/>}/>
+          <Route path="/teachers/:teacherId/edit" element={<UpdateTeacherPage/>}/>
+          <Route path="/teachers/:teacherId" element={<TeacherDetail/>}/>
+
+          {/* Parents */}
+          <Route path="/parents" element={<ParentsPage/>}/>
+          <Route path="/parents/create-parent" element={<CreateParentPage/>}/>
+          <Route path="/parents/:parentId/edit" element={<UpdateParentPage/>}/>
+          <Route path="/parents/:parentId" element={<ParentDetailPage/>}/>
+
+          {/* Students */}
+          <Route path="/students" element={<StudentsPage/>}/>
         </Route>
 
         <Route element={<AuthLayout />}>
-          {/* <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          /> */}
           <Route path='/auth/login' element={<LoginPage />} />
           <Route path='/auth/register' element={<RegisterPage />} />
           <Route path='/auth/forgot-password' element={<ForgotPasswordPage />} />
