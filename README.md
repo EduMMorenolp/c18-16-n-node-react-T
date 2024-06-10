@@ -41,13 +41,6 @@ La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herram
       <td>e.m.morenolp@gmail.com</td>
     </tr>
     <tr>
-      <td>Luis Fernando Correa</td>
-      <td>Back-End</td>
-      <td><a href="https://www.linkedin.com/in/luis-fernando-correa-ba11aa27b/">LinkedIn</a></td>
-      <td><a href="https://github.com/luiscorrea7">luiscorrea7</a></td>
-      <td>correaluisfernando00@gmail.com</td>
-    </tr>
-    <tr>
       <td>Anthony Zavaleta Roldan</td>
       <td>Back-End</td>
       <td><a href="https://www.linkedin.com/in/anthony-zavaleta-r">LinkedIn</a></td>
@@ -67,34 +60,6 @@ La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herram
       <td><a href="https://www.linkedin.com/in/jose-luis-capote-dsw/">LinkedIn</a></td>
       <td><a href="https://github.com/jlcapor">jlcapor</a></td>
       <td>capoterojas123@gmail.com</td>
-    </tr>
-    <tr>
-      <td>Georgina Costilla</td>
-      <td>Front-End</td>
-      <td><a href="https://www.linkedin.com/in/georgina-costilla/">LinkedIn</a></td>
-      <td><a href="https://github.com/georginacostilla">georginacostilla</a></td>
-      <td>georginacostilla.gc@gmail.com</td>
-    </tr>
-    <tr>
-      <td>Ernesto Betancourt</td>
-      <td>Front-End</td>
-      <td><a href="https://www.linkedin.com/in/ebetafont">LinkedIn</a></td>
-      <td><a href="https://github.com/ebetafont">ebetafont</a></td>
-      <td>ebetafont@gmail.com</td>
-    </tr>
-    <tr>
-      <td>Ezequiel rindello</td>
-      <td>Front-End</td>
-      <td>Ezequiel rindello</td>
-      <td><a href="https://github.com/EzequielRindello">EzequielRindello</a></td>
-      <td>Rindelloezequiel@gmail.com</td>
-    </tr>
-    <tr>
-      <td>Juliana Gómez</td>
-      <td>Front-End</td>
-      <td><a href="https://www.linkedin.com/in/juliana-gomez-dev?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a></td>
-      <td><a href="https://github.com/Julianagomez1">Julianagomez1</a></td>
-      <td>devjuliana752@gmail.com</td>
     </tr>
     <tr>
       <td>Gladys Ferreira</td>
