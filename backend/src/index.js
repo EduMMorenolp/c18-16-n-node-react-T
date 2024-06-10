@@ -6,9 +6,12 @@ const roles = require('./routes/roles.routes')
 const teacher = require('./routes/teacher.routes')
 const courses = require('./routes/courses.routes')
 const homeRouter = require('./routes/home.routes')
+const parents = require('./routes/parents.routes.js')
+const students = require('./routes/students.routes.js')
 require('dotenv').config()
 
 const app = express()
+
 const PORT = process.env.PORT || 3000
 
 app.use(cors({ origin: 'http://localhost:5173' }));
@@ -37,9 +40,10 @@ app.use('/', homeRouter);
 // Rutas de autenticación
 app.use('/api/auth', auths)
 app.use('/api', roles)
-// Rutas de profesor y cursos
-app.use('/api', teacher);
-app.use('/api', courses);
+app.use('/api', parents)
+app.use('/api', students)
+app.use('/api', teacher)
+app.use('/api', courses)
 
 app.listen(PORT, () => {
   console.log('\n==================================================')

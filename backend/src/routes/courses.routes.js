@@ -1,17 +1,17 @@
-const express = require('express');
+const express = require('express')
 const {
   createCourseController,
   getCoursesController,
   updateCourseController,
-  deleteCourseController,
-} = require('../controllers/coursesController');
-const router = express.Router();
+  deleteCourseController
+} = require('../controllers/coursesController')
+const router = express.Router()
 
-const verifyToken = require('../libs/authMiddleware.js');
+const verifyToken = require('../middlewares/verifyAccessToken.js')
 
-router.post('/courses', verifyToken, createCourseController);
-router.get('/courses', verifyToken, getCoursesController);
-router.put('/courses/:id', verifyToken, updateCourseController);
-router.delete('/courses/:id', verifyToken, deleteCourseController);
+router.post('/courses', verifyToken, createCourseController)
+router.get('/courses', verifyToken, getCoursesController)
+router.put('/courses/:id', verifyToken, updateCourseController)
+router.delete('/courses/:id', verifyToken, deleteCourseController)
 
-module.exports = router;
+module.exports = router

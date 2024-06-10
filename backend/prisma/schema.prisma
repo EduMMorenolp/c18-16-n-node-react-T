@@ -20,20 +20,20 @@ model roles {
 }
 
 model userDetails {
-  id        Int      @id @default(autoincrement())
-  firstName String
-  lastName  String
-  birthdate DateTime @default(now())
-  city      String
-  district  String
-  country   String
-  gender    String
-  address   String
-  phone     Int
-  dni       Int      @unique
-  role      roles    @relation(fields: [roleId], references: [id])
+  id        Int       @id @default(autoincrement())
+  firstName String?
+  lastName  String?
+  birthdate DateTime?
+  city      String?
+  district  String?
+  country   String?
+  gender    String?
+  address   String?
+  phone     Int?
+  dni       Int?      @unique
+  role      roles     @relation(fields: [roleId], references: [id])
   roleId    Int
-  user      users    @relation(fields: [userId], references: [id])
+  user      users     @relation(fields: [userId], references: [id])
   userId    Int
 }
 
@@ -50,8 +50,8 @@ model users {
 
 model parents {
   id               Int             @id @default(autoincrement())
-  workPlaceAddress String
-  workPlaceNumber  String
+  workPlaceAddress String?
+  workPlaceNumber  String?
   user             users           @relation(fields: [userId], references: [id])
   userId           Int
   parentsStudents  parentStudent[]
