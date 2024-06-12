@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Edit } from 'lucide-react';
 import { dashboardConfig } from '../../../config/dashboard';
 import SidebarNav from './SidebarNav';
@@ -23,7 +22,7 @@ export default function Sidebar() {
 
   return (
     <aside className="relative h-screen w-full top-0 z-30 hidden flex-col gap-4 border-r lg:sticky lg:block bg-sidebarBg-darkBlue overflow-y-auto">
-      <div className="sticky top-0 z-20 p-4 bg-sidebarBg-darkBlue">
+      <div className="sticky top-0 z-20 p-3 bg-sidebarBg-darkBlue">
         <div className="flex flex-col gap-2.5 w-full text-center">
           <div className="relative m-auto w-20 h-20">
             <img

@@ -1,6 +1,7 @@
 const prisma = require('../models/prisma')
 const { hashPassword } = require('../utils/auth')
 
+
 const getParentsController = async (req, res) =>{
     try {
       const allParents = await prisma.parents.findMany({
@@ -101,9 +102,6 @@ const createParentController = async (req, res) => {
         res.status(500).json({ error: 'Hubo un error' });
    }
 }
-
-
-
 
 const getParentByIdController = async (req, res) =>{
     const parentId = parseInt(req.params.id);
