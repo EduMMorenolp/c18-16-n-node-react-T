@@ -13,12 +13,14 @@ import NotFound from "./pages/404/NotFound";
 
 // Students
 import StudentsPage from "./pages/students/StudentsPage";
+import CreateStudentPage from "./pages/students/CreateStudent"
 
 //Parents
 import ParentsPage from "./pages/parents/ParentsPage";
 import CreateParentPage from "./pages/parents/CreateParentPage";
 import UpdateParentPage from "./pages/parents/UpdateParentPage";
 import ParentDetailPage from "./pages/parents/ParentDetailPage";
+import AddStudentToParent from "./pages/parents/AddStudentToParent";
 
 //Teachers
 import TeachesPage from "./pages/teachers/TeachesPage";
@@ -48,9 +50,11 @@ function App() {
           <Route path="/parents/create-parent" element={<CreateParentPage/>}/>
           <Route path="/parents/:parentId/edit" element={<UpdateParentPage/>}/>
           <Route path="/parents/:parentId" element={<ParentDetailPage/>}/>
+          <Route path="/parents/:parentId/create-student" element={<AddStudentToParent/>}/>
 
           {/* Students */}
           <Route path="/students" element={<StudentsPage/>}/>
+
         </Route>
 
         <Route element={<AuthLayout />}>

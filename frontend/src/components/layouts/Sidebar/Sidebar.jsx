@@ -22,8 +22,8 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="h-screen w-full top-0 z-30 hidden flex-col gap-4 border-r lg:sticky lg:block bg-[#13446B] overflow-y-auto">
-      <div className="sticky top-0 h-[3.56rem] items-center border-b px-4 lg:flex lg:px-6 bg-[#13446B] z-10">
+    <aside className="h-screen w-full top-0 z-30 hidden flex-col gap-4 border-r lg:sticky lg:block bg-sidebarBg-orangeSidebar overflow-y-auto">
+      <div className="sticky top-0 h-[3.56rem] items-center border-b px-4 lg:flex lg:px-6 bg-sidebarBg-orangeSidebar z-10">
         <Link
           to="/"
           className="flex w-fit items-center"
@@ -34,7 +34,7 @@ export default function Sidebar() {
           </p>
         </Link>
       </div>
-      <div className={`sticky top-[3.56rem] flex flex-col gap-2.5 px-4 pt-2 lg:px-3 lg:pt-2 bg-[#13446B] z-10 ${isScrolled ? 'mt-8 shadow-xl' : ''}`}>
+      <div className={`sticky top-[3.56rem] flex flex-col gap-2.5 px-4 pt-2 lg:px-3 lg:pt-2 bg-sidebarBg-orangeSidebar z-10 ${isScrolled ? 'mt-8 shadow-xl' : ''}`}>
         <div className="flex flex-col gap-2.5 w-full text-center mt-3">
           <div className="relative m-auto w-20 h-20">
             <img
