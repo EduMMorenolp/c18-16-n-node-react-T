@@ -52,6 +52,7 @@ const controllerRegister = async (req, res) => {
     }
 
     const userPassword = await hashPassword(password);
+    console.log(userPassword)
     await prisma.users.create({
       data: {
         name,
