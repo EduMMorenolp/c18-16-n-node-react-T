@@ -13,6 +13,7 @@ export function CreateTeacher() {
     );
 }
 
+
 export function UpdateTeacher({ id }) {
     return(
         <Link
