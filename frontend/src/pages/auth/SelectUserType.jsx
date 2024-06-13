@@ -20,19 +20,19 @@ export default function SelectUserType() {
         <div className='flex justify-center space-x-4'>
           <button
             onClick={() => handleRegistration('Padre')}
-            className="inline-block px-4 py-2 text-sm font-medium text-gray-700 bg-white border rounded-md hover:bg-gray-50 focus:relative"
+            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md hover:bg-gray-50 focus:relative"
           >
             Estudiante
           </button>
           <button
             onClick={() => handleRegistration('Profesor')}
-            className="inline-block px-4 py-2 text-sm font-medium text-gray-700 bg-white border rounded-md hover:bg-gray-50 focus:relative"
+            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md hover:bg-gray-50 focus:relative"
           >
             Padre
           </button>
           <button
             onClick={() => handleRegistration('Estudiante')}
-            className="inline-block px-4 py-2 text-sm font-medium text-gray-700 bg-white border rounded-md hover:bg-gray-50 focus:relative"
+            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md hover:bg-gray-50 focus:relative"
           >
             Profesor
           </button>
