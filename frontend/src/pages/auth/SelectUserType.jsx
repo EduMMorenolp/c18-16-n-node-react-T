@@ -17,22 +17,22 @@ export default function SelectUserType() {
           className="w-36 h-45 mx-auto"
         />
         <h1 className="text-lg font-black text-[#13446B] text-center mb-6">Únete a Edulinker como</h1>
-        <div className='flex justify-center space-x-4'>
+        <div className='flex justify-center space-x-2'>
           <button
-            onClick={() => handleRegistration('Padre')}
-            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md hover:bg-gray-50 focus:relative"
+            onClick={() => handleRegistration('Estudiante')}
+            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md "
           >
             Estudiante
           </button>
           <button
-            onClick={() => handleRegistration('Profesor')}
-            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md hover:bg-gray-50 focus:relative"
+            onClick={() => handleRegistration('Padre')}
+            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md "
           >
             Padre
           </button>
           <button
-            onClick={() => handleRegistration('Estudiante')}
-            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md hover:bg-gray-50 focus:relative"
+            onClick={() => handleRegistration('Profesor')}
+            className="inline-block px-4 py-2 text-sm font-medium bg-btnBg-light text-white  border rounded-md "
           >
             Profesor
           </button>
