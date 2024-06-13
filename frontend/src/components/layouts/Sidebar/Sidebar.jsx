@@ -1,25 +1,9 @@
-import { useState, useEffect } from 'react';
 import { Edit } from 'lucide-react';
 import { dashboardConfig } from '../../../config/dashboard';
 import SidebarNav from './SidebarNav';
 
 export default function Sidebar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = document.querySelector('aside').scrollTop;
-      setIsScrolled(scrollTop > 100);
-    };
-
-    const aside = document.querySelector('aside');
-    aside.addEventListener('scroll', handleScroll);
-
-    return () => {
-      aside.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+ 
   return (
     <aside className="relative h-screen w-full top-0 z-30 hidden flex-col gap-4 border-r lg:sticky lg:block bg-sidebarBg-darkBlue overflow-y-auto">
       <div className="sticky top-0 z-20 p-3 bg-sidebarBg-darkBlue">
@@ -41,11 +25,9 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-      <div className={`${isScrolled ? 'mt-8 shadow-xl' : ''}`}>
-        <div className="px-3 py-2.5 lg:px-5">
+        <div className="px-3 lg:px-5">
           <SidebarNav items={dashboardConfig} />
         </div>
-      </div>
     </aside>
   );
 }

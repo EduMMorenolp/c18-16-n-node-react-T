@@ -30,7 +30,7 @@ export default function ForgotPasswordPage() {
           <input type="submit" value="Enviar Instrucciones" className="w-full bg-btnBg-light text-white py-2 px-4 rounded-md shadow-sm uppercase text-xs font-bold text-center"/>
         </form>
         <hr className="w-full mt-6 border-t border-[#13446B]"/>
-          <nav className=" mt-4 flex flex-col space-y-4">
+          <nav className=" mt-2 flex flex-col space-y-2">
             <Link
               to='/auth/login'
               className="text-center text-black text-sm font-semibold"
@@ -39,7 +39,7 @@ export default function ForgotPasswordPage() {
           </Link>
 
           <Link
-            to='/auth/register'
+            to={"/auth/user-type"}
             className="text-center text-black text-sm font-semibold"
           >
             ¿No tienes cuenta? Crea una

@@ -27,6 +27,7 @@ import TeachesPage from "./pages/teachers/TeachesPage";
 import CreateTeacherPage from "./pages/teachers/CreateTeacherPage";
 import UpdateTeacherPage from "./pages/teachers/UpdateTeacherPage";
 import TeacherDetail from "./pages/teachers/TeacherDetail";
+import SelectUserType from "./pages/auth/SelectUserType";
 
 
 
@@ -58,6 +59,7 @@ function App() {
         </Route>
 
         <Route element={<AuthLayout />}>
+          <Route path="/auth/user-type" element={<SelectUserType />} />
           <Route path='/auth/login' element={<LoginPage />} />
           <Route path='/auth/register' element={<RegisterPage />} />
           <Route path='/auth/forgot-password' element={<ForgotPasswordPage />} />

@@ -18,13 +18,13 @@ export default function SidebarItem({items}) {
     }
   };
   return (
-    <div className='scroll-py-36 my-4 flex w-full flex-col gap-2 p-2 text-sm '>
+    <div className='scroll-py-36 my-3 flex w-full flex-col gap-2 p-2 text-sm '>
        {items.map((item, index) => {
         if (!item.href && !item.onClick) {
           return (
             <span
               key={index}
-              className="flex w-full cursor-not-allowed items-center rounded-md p-2  hover:underline"
+              className="flex w-full cursor-not-allowed items-center rounded-md hover:underline"
             >
               {item.title}
             </span>

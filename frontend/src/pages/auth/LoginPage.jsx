@@ -39,7 +39,7 @@ export default function LoginPage() {
             alt="Logo"
             className="w-36 h-45 mx-auto"
       />
-      <h1 className="text-xl font-black text-[#13446B] text-center">Bienvenido</h1>
+      <h1 className="text-xl font-black text-btnBg-sapphireBlue text-center">Bienvenido</h1>
       <form onSubmit={handleSubmit(handleLogin)} className="w-full flex flex-col gap-4 mt-4">
         <div className="flex flex-col gap-5">
           <div className="flex items-center text-sm">
@@ -88,7 +88,7 @@ export default function LoginPage() {
         <div className="flex justify-center gap-4">
           <input type="submit" value="Iniciar sesión" className="bg-orangeBtn hover:bg-orange-700 text-white px-2 rounded-md shadow-sm uppercase text-xs font-bold w-full"/>
           <Link 
-            to={"/auth/register"} 
+            to={"/auth/user-type"} 
             className="bg-btnBg-light  text-white py-2 px-2 rounded-md shadow-sm uppercase text-center text-xs font-bold w-full">
             Registrarse
           </Link>

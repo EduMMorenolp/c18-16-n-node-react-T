@@ -74,11 +74,11 @@ export default function CreateParentPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8 py-12">
-      <div className="w-full max-w-4xl bg-white border border-gray-300 rounded-lg p-6 sm:p-7 shadow-md">
-        <form onSubmit={handleSubmit} className="p-6 sm:p-10">
+      <div className="w-full max-w-3xl bg-white border border-gray-300 rounded-lg p-4 sm:p-5 shadow-md">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6">
           <div className='border-b border-gray-900/10 pb-10'>
-            <h1 className='text-xl text-center font-bold leading-7 text-marineBlue uppercase'>Datos del acudiente</h1>
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <h1 className='text-xl text-center font-bold leading-7 mt-4 text-marineBlue uppercase'>Datos del acudiente</h1>
+            <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                   <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
                   <div className="mt-2">
@@ -207,7 +207,7 @@ export default function CreateParentPage() {
               </div>
             </div>
           </div>
-          <div className="mt-6 flex items-center justify-end gap-x-6">
+          <div className="mt-8 flex items-center justify-end gap-x-6">
             <button 
               type="button" 
               onClick={() => navigate("/parents")} 

@@ -2,13 +2,17 @@ import { User, Mail, Key, Lock } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Error from '../../components/Error';
 import { createAccount } from '../../api/AuthAPI';
 import { useAuth } from '../../hooks/useAuth';
 
 export default function RegisterPage() {
+
+  const [searchParams] = useSearchParams();
+  const userType = searchParams.get('type');
+  
   const { register, handleSubmit, watch, reset, formState:{ errors } } = useForm();
   
   const {userInfo } = useAuth();

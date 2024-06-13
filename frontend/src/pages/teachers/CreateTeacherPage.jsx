@@ -4,10 +4,10 @@ export default function CreateTeacherPage() {
   const navigate = useNavigate()
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8 py-12">
-      <div className="w-full max-w-4xl bg-white border border-gray-300 rounded-lg p-6 sm:p-7 shadow-md">
-        <form className="p-6 sm:p-10">
+      <div className="w-full max-w-3xl bg-white border border-gray-300 rounded-lg p-4 sm:p-6 shadow-md">
+        <form className="p-4 sm:p-6">
           <div className='border-b border-gray-900/10 pb-10'>
-            <h1 className='text-xl text-center font-bold leading-7 text-marineBlue uppercase'>Datos del profesor</h1>
+            <h1 className='text-xl text-center font-bold leading-7 mt-4 text-marineBlue uppercase'>Datos del profesor</h1>
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                   <label for="first-name" className="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
@@ -32,7 +32,7 @@ export default function CreateTeacherPage() {
                   </div>
               </div>
             </div>
-            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label htmlFor="dni" className="block text-sm font-medium leading-6 text-gray-900">DNI</label>
                 <div class="mt-2">
@@ -57,7 +57,7 @@ export default function CreateTeacherPage() {
               </div>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label htmlFor="birthdate" className="block text-sm font-medium leading-6 text-gray-900">Fecha de nacimiento</label>
                 <div class="mt-2">
@@ -138,7 +138,7 @@ export default function CreateTeacherPage() {
               </div>
             </div>
           </div>
-          <div className="mt-6 flex items-center justify-end gap-x-6">
+          <div className="mt-8 flex items-center justify-end gap-x-6">
             <button 
               type="button" 
               onClick={() => navigate("/teachers")} 
