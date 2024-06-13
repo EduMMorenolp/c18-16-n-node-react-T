@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../../lib/axios';
 import Loading from '../../components/Loading';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function VerificationCodePage() {
   const {userInfo } = useAuth();
