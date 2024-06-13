@@ -1,7 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth';
 
 export default function ForgotPasswordPage() {
+  const {userInfo } = useAuth();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/')
+    }
+  }, [navigate, userInfo])
+  
   return (
     <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-xs bg-white rounded-2xl shadow-md p-6 sm:p-8 min-h-[500px]">

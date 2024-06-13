@@ -44,7 +44,7 @@ export default function RegisterPage() {
   const handleRegister = async (formData) => {
     mutate({
       ...formData,
-      roleId: 2
+      roleName: userType
     });
   };
   return (

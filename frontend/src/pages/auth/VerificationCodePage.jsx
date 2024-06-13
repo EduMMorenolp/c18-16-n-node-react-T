@@ -1,21 +1,59 @@
-import React, { useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import api from '../../lib/axios';
+import Loading from '../../components/Loading';
 
 export default function VerificationCodePage() {
-    const [verificationCode, setVerificationCode] = useState('');
-    const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
-    const userType = searchParams.get('type');
+  const {userInfo } = useAuth();
+  const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-       
-        if (verificationCode === '123456') { 
-            navigate(`/auth/register?type=${userType}`);
+  
+  const [verificationCode, setVerificationCode] = useState('');
+  const [searchParams] = useSearchParams();
+  const userType = searchParams.get('type');
+  const [validUserType, setValidUserType] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/')
+    }
+  }, [navigate, userInfo])
+
+  useEffect(() => {
+    const fetchUserTypes = async () => {
+      setLoading(true)
+      try {
+        const url = `/api/roles/${userType}/role`
+        const {data} = await api.get(url);
+        if (data.name === userType) {
+          setValidUserType(true);
         } else {
-          alert('Código incorrecto. Inténtalo de nuevo.');
+          setValidUserType(false);
         }
-      };
+      } catch (error) {
+        navigate("/404")
+      }
+
+      setLoading(false);
+    }
+    fetchUserTypes();
+  }, [userType])
+
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+       
+      if (verificationCode === '123456') { 
+          navigate(`/auth/register?type=${userType}`);
+      } else {
+        alert('Código incorrecto. Inténtalo de nuevo.');
+      }
+  };
+
+  if (loading) return <Loading/>
+  if (!validUserType) return <Navigate to='/404' />;
+
   return (
     <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-sm bg-white rounded-lg shadow-md p-6 sm:p-8 min-h-[400px]">

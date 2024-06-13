@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function SelectUserTypePage() {
-  const navigate = useNavigate();
- 
-  const handleRegistration = (userType) => {
-    navigate(`/auth/register?type=${userType}`);
-  };
-  
+  const {userInfo } = useAuth();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/')
+    }
+  }, [navigate, userInfo])
+
   return (
     <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 sm:p-8 min-h-[320px]">

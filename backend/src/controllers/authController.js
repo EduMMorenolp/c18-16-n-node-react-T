@@ -40,7 +40,7 @@ const controllerLogin = async (req, res) => {
 
 const controllerRegister = async (req, res) => {
   try {
-    const { name, email, password, roleId } = req.body
+    const { name, email, password, roleName } = req.body
     const userExists = await prisma.users.findUnique({
       where:
         { email }
@@ -51,14 +51,20 @@ const controllerRegister = async (req, res) => {
       return res.status(409).json({ error: error.message })
     }
 
+
+    const role = await prisma.roles.findUnique({
+      where: { 
+        name: roleName
+      }
+  });
+
     const userPassword = await hashPassword(password);
-    console.log(userPassword)
     await prisma.users.create({
       data: {
         name,
         email,
         password: userPassword,
-        roleId
+        roleId: role.id
       }
     })
     res.send('Cuenta creada, iniciar sesión')
