@@ -6,7 +6,6 @@ const {
   deleteRolesServiceById
 } = require('../services/roleService')
 const prisma = require('../models/prisma')
-const { saveRolesService, getAllRolesService } = require('../services/roleService')
 
 const getAllRolesController = async (req, res) => {
   try {
