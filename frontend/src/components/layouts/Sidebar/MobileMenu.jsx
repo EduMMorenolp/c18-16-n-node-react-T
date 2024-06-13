@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
+import ProfileBuilder from '../Header/ProfileBuilder';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

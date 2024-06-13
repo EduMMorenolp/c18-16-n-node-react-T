@@ -1,6 +1,13 @@
-import { Cog6ToothIcon, CalendarIcon, BellIcon, WrenchScrewdriverIcon } from '@heroicons/react/20/solid';
+import { 
+    ArrowRightEndOnRectangleIcon, 
+    BellIcon, 
+    CalendarDaysIcon, 
+    Cog6ToothIcon, 
+    HomeIcon 
+} from '@heroicons/react/20/solid'
 
-export const dashboardConfig = [
+
+export const dashboardConfig =  [
     {
         name: "Calendario",
         href: "/",
@@ -12,13 +19,23 @@ export const dashboardConfig = [
         icon: BellIcon,
     },
     {
-        name: "Configuración roles y permisos",
+        name: "Calendario",
+        href: "#",
+        icon: CalendarDaysIcon,
+    },
+    {
+        name: "Notificaciones",
+        href: "/notifications",
+        icon: BellIcon,
+    },
+    {
+        name: "Configuracion roles y permisos",
         href: "/setting",
         icon: Cog6ToothIcon,
     },
     {
-        name: "Soporte técnico",
-        href: "/",
-        icon: WrenchScrewdriverIcon,
-    },
-];
+        name: 'Cerrar Sesión',
+        icon: ArrowRightEndOnRectangleIcon,
+        onClick: 'logout',
+    }
+]

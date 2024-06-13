@@ -4,8 +4,8 @@ export default function UserImage({src}) {
   return ( 
     <img 
       className="rounded-full" 
-      height={35} 
-      width={35} 
+      height={40} 
+      width={40} 
       alt="Imagen usuario" 
       src={src || '/placeholder.jpg'}
     />

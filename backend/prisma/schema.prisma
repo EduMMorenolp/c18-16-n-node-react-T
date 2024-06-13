@@ -14,9 +14,9 @@ generator client {
 }
 
 model roles {
-  id         Int           @id @default(autoincrement())
-  name       String        @unique
-  userDetail userDetails[]
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  users users[]
 }
 
 model userDetails {
@@ -38,11 +38,13 @@ model userDetails {
 }
 
 model users {
-  id         Int           @id @default(autoincrement())
+  id         Int          @id @default(autoincrement())
   name       String
-  email      String        @unique
+  email      String       @unique
   password   String
-  userDetail userDetails[]
+  role       roles        @relation(fields: [roleId], references: [id])
+  roleId     Int
+  userDetail userDetails?
   parents    parents[]
   teachers   teachers[]
   students   students[]
@@ -54,7 +56,7 @@ model parents {
   workPlaceNumber  String?
   user             users           @relation(fields: [userId], references: [id])
   userId           Int
-  parentsStudents  parentStudent[]
+  parentStudents   parentStudent[]
 }
 
 model parentStudent {
@@ -66,31 +68,43 @@ model parentStudent {
 }
 
 model students {
-  id              Int             @id @default(autoincrement())
-  user            users           @relation(fields: [userId], references: [id])
+  id              Int              @id @default(autoincrement())
+  user            users            @relation(fields: [userId], references: [id])
   userId          Int
-  section         sections        @relation(fields: [sectionId], references: [id])
+  section         sections         @relation(fields: [sectionId], references: [id])
   sectionId       Int
-  degree          degrees         @relation(fields: [degreeId], references: [id])
+  degree          degrees          @relation(fields: [degreeId], references: [id])
   degreeId        Int
   parentsStudents parentStudent[]
   enrollments     enrollments[]
+  SectionStudent  SectionStudent[]
 }
 
 model teachers {
   id               Int             @id @default(autoincrement())
   academicDegree   String
   yearOfExperience Int
-  hare_date        DateTime
+  hire_date        DateTime
   user             users           @relation(fields: [userId], references: [id])
   userId           Int
   teacherCourses   teacherCourse[]
 }
 
 model sections {
-  id       Int        @id @default(autoincrement())
-  name     String
-  students students[]
+  id             Int              @id @default(autoincrement())
+  name           String
+  students       students[]
+  SectionStudent SectionStudent[]
+}
+
+model SectionStudent {
+  id        Int      @id @default(autoincrement())
+  student   students @relation(fields: [studentId], references: [id])
+  studentId Int
+  section   sections @relation(fields: [sectionId], references: [id])
+  sectionId Int
+
+  @@unique([studentId, sectionId])
 }
 
 model degrees {
@@ -110,7 +124,7 @@ model teacherCourse {
 model courses {
   id             Int             @id @default(autoincrement())
   name           String
-  description    String?
+  desciption     String?
   teacherCourses teacherCourse[]
   enrollments    enrollments[]
 }

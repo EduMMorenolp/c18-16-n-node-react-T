@@ -5,14 +5,16 @@ const {
   getRolesByIdController,
   saveRolesController,
   updateRolesByIdController,
-  deleteRolesByIdController
+  deleteRolesByIdController,
+  findRoleByNameController
 } = require('../controllers/roleController')
 
 const verifyAccessToken = require('../middlewares/verifyAccessToken')
 
 router
-  .get('/roles', verifyAccessToken, getAllRolesController)
-  .get('/roles/:id', verifyAccessToken, getRolesByIdController)
+  .get('/roles', getAllRolesController)
+  .get('/roles/:id', getRolesByIdController)
+  .get('/roles/:name/role',findRoleByNameController)
   .post('/roles', saveRolesController)
   .put('/roles/:id', verifyAccessToken, updateRolesByIdController)
   .delete('/roles/:id', verifyAccessToken, deleteRolesByIdController)

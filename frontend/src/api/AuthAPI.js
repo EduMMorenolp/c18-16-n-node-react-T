@@ -4,6 +4,7 @@ import { isAxiosError } from "axios";
 
 
 export async function createAccount(userData) {
+    console.log(userData)
     try {
         const url = "/api/auth/register"
         const {data} = await api.post(url, userData)

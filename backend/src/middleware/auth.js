@@ -16,10 +16,16 @@ const authenticate = async (req, res, next) => {
             where: {
                 id: decoded.id
             },
+            include: {
+                role: true // Incluir la relación con el rol
+            }
         })
         if(typeof decoded === 'object' && decoded.id) {
             if(user) {
-                req.user = user
+                req.user = {
+                    ...user,
+                    role: user.role.name
+                };
                 next()
             } else {
                 res.status(500).json({error: 'Token No Válido'})
