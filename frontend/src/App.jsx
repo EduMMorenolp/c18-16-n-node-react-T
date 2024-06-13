@@ -5,6 +5,10 @@ import AuthLayout from "./layouts/AuthLayout";
 import HomePage from "./pages/home/HomePage";
 import Notifications from "./pages/notifications/Notifications";
 import SettingPage from "./pages/setting/SettingPage";
+
+// Auth
+import SelectUserTypePage from "./pages/auth/SelectUserTypePage";
+import VerificationCodePage from "./pages/auth/VerificationCodePage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
@@ -27,7 +31,7 @@ import TeachesPage from "./pages/teachers/TeachesPage";
 import CreateTeacherPage from "./pages/teachers/CreateTeacherPage";
 import UpdateTeacherPage from "./pages/teachers/UpdateTeacherPage";
 import TeacherDetail from "./pages/teachers/TeacherDetail";
-import SelectUserType from "./pages/auth/SelectUserType";
+
 
 
 
@@ -59,7 +63,8 @@ function App() {
         </Route>
 
         <Route element={<AuthLayout />}>
-          <Route path="/auth/user-type" element={<SelectUserType />} />
+          <Route path="/auth/user-type" element={<SelectUserTypePage />} />
+          <Route path="/auth/verification" element={<VerificationCodePage />} />
           <Route path='/auth/login' element={<LoginPage />} />
           <Route path='/auth/register' element={<RegisterPage />} />
           <Route path='/auth/forgot-password' element={<ForgotPasswordPage />} />

@@ -10,7 +10,7 @@ export default function ForgotPasswordPage() {
           alt="Logo"
           className="w-36 h-45 mx-auto"
         />
-        <h1 className="text-xl font-black text-[#13446B] text-center">Reestablecer Password</h1>
+        <h1 className="text-xl font-black text-btnBg-dark text-center">Reestablecer Password</h1>
         <form  className="space-y-4 mt-8">
           <div className="flex flex-col gap-2">
             <label

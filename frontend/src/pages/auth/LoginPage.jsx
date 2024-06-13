@@ -39,7 +39,7 @@ export default function LoginPage() {
             alt="Logo"
             className="w-36 h-45 mx-auto"
       />
-      <h1 className="text-xl font-black text-btnBg-sapphireBlue text-center">Bienvenido</h1>
+      <h1 className="text-xl font-black text-btnBg-dark text-center">Bienvenido</h1>
       <form onSubmit={handleSubmit(handleLogin)} className="w-full flex flex-col gap-4 mt-4">
         <div className="flex flex-col gap-5">
           <div className="flex items-center text-sm">
